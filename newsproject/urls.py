@@ -13,10 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+import debug_toolbar
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.views.i18n import set_language
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,6 +27,8 @@ urlpatterns = [
 if settings.DEBUG:
     from django.conf.urls.static import static
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls))]
 
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
