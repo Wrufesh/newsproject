@@ -27,13 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-USE_I18N = True
-
-LANGUAGES = [
-    ('en', _('English')),
-    ('ne', _('Nepali')),
-]
-
 # Application definition
 
 INSTALLED_APPS = [
