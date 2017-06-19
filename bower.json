@@ -1,0 +1,22 @@
+{
+  "name": "newsproject",
+  "homepage": "https://github.com/Wrufesh/newsproject",
+  "authors": [
+    "wrufesh singh <wrufesh@gmail.com>"
+  ],
+  "description": "this is news site",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}
