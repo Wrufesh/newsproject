@@ -4,7 +4,7 @@ from news.models import News, Category
 
 
 class NewsTranslationOptions(TranslationOptions):
-    fields = ('headline', 'reporter')
+    fields = ('headline', 'reporter', 'article')
 
 
 class CategoryTranslationOptions(TranslationOptions):

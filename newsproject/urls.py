@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.i18n import set_language
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^news/', include('news.urls')),
+    url(r'^setlang/', set_language, name="setlang"),
 ]
 
 if settings.DEBUG:
