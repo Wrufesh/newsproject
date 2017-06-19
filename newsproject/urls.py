@@ -20,6 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^summernote/', include('django_summernote.urls')),
+    url(r'^news/', include('news.urls')),
 ]
 
 if settings.DEBUG:
