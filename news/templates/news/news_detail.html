@@ -1,4 +1,7 @@
-<h1>{{ object.headline }}</h1>
-<p>{{ object.article|safe }}</p>
-<p>Reporter: {{ object.reporter }}</p>
-<p>Published: {{ object.publication_date|date }}</p>
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ object.headline }}</h1>
+    <p>{{ object.article|safe }}</p>
+    <p>Reporter: {{ object.reporter }}</p>
+    <p>Published: {{ object.publication_date|date }}</p>
+{% endblock %}
