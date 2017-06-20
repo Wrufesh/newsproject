@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from django_summernote.admin import SummernoteModelAdmin
-from .models import News, Category
+from .models import News, Category, Author
 
 
 class SomeModelAdmin(SummernoteModelAdmin):
@@ -10,3 +10,4 @@ class SomeModelAdmin(SummernoteModelAdmin):
 
 admin.site.register(News, SomeModelAdmin)
 admin.site.register(Category)
+admin.site.register(Author)

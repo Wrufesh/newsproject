@@ -7,4 +7,4 @@ register = template.Library()
 
 @register.simple_tag
 def get_current_categories():
-    return Category.objects.all()
+    return Category.menus()
