@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from news.models import News
+from news.models import News, Category
+
+
+def get_categories_context(request):
+    return {'categories': Category.objects.all()}
 
 
 class NewsListView(ListView):
@@ -11,7 +15,7 @@ class NewsListView(ListView):
         context = super().get_context_data(**kwargs)
         category_id = self.request.GET.get('category_id', None)
         if category_id:
-            context['object_list']  = News.objects.filter(category__id=category_id).order_by('publication_date')
+            context['object_list'] = News.objects.filter(category__id=category_id).order_by('publication_date')
         else:
             context['object_list'] = News.objects.all().order_by('publication_date')
         return context
