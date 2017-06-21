@@ -18,10 +18,13 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from newsproject.views import index
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^news/', include('news.urls')),
+    url(r'^$', index, name='home'),
 ]
 
 if settings.DEBUG:

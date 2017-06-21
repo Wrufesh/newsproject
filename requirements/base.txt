@@ -3,3 +3,4 @@ django-summernote==0.8.7
 django-redis
 lxml
 Pillow
+django-disqus
