@@ -65,6 +65,7 @@
     <script type='application/ld+json'>
         {"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/demo.themeisle.com\/islemag\/","name":"Islemag","potentialAction":{"@type":"SearchAction","target":"https:\/\/demo.themeisle.com\/islemag\/?s={search_term_string}","query-input":"required name=search_term_string"}}
 
+
     </script>
     <!-- / Yoast SEO plugin. -->
 
@@ -389,10 +390,23 @@
     {% include '_header.html' %}
 
     <div id="content" class="site-content">
-        {% block content %}{% endblock %}
+        {% block carousel %}{% endblock %}
     </div><!-- #content -->
 
-   {% include '_footer.html' %}
+
+    <div class="container">
+        <div class="row">
+
+            <div class="islemag-content-left col-md-9">
+                {% block content %} {% endblock %}
+            </div><!-- End .islemag-content-left -->
+
+            {% block aside %}{% endblock %}
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+
+
+    {% include '_footer.html' %}
 </div><!-- #page -->
 </div><!-- End #wrapper -->
 <!--facebook like and share js -->
