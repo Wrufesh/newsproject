@@ -1,0 +1,99 @@
+{% load category %}
+{% get_latest_news as latest_articles %}
+<div id="st_latest_posts_widget-3" class="widget widget_st_latest_posts_widget"><h3
+        class="title-border dkgreen title-bg-line"><span>Latest Posts</span></h3>
+    <div class="latest-posts">
+        {% for article in latest_articles %}
+            <div class="media">
+                <div class="pull-left"><a
+                        href="{% url 'news-detail' article.id %}"><img
+                        width="64" height="64"
+                        src="{{ article.get_thumbnail }}"
+                        class="img-responsive wp-post-image" alt="Latest News Image"/></a></div>
+                <div class="media-body"><h3 class="entry-title"><a
+                        href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
+                    <div class="entry-meta small"><span class="entry-overlay-date"><i
+                            class="fa fa-calendar"></i>{{ article.published_date }}</span></div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{#<div id="islemag_multiple_ads-widget-3" class="widget islemag_multiple_ads"><h3#}
+{#        class="title-border dkgreen title-bg-line"><span>Small Banners</span></h3>#}
+{#    <div class="islemag-small-banner"><img#}
+{#            src="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/125.png"#}
+{#            alt=""/></div>#}
+{#    <div class="islemag-small-banner"><img#}
+{#            src="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/125.png"#}
+{#            alt=""/></div>#}
+{#    <div class="islemag-small-banner"><img#}
+{#            src="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/125.png"#}
+{#            alt=""/></div>#}
+{#    <div class="islemag-small-banner"><img#}
+{#            src="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/125.png"#}
+{#            alt=""/></div>#}
+{#</div>#}
+{##}
+{#<div id="islemag_single_ad-widget-3" class="widget islemag_single_ad"><h3#}
+{#        class="title-border dkgreen title-bg-line"><span>Large Banner</span></h3>#}
+{#    <div class="islemag-ad-banner-content"><a href="https://themeisle.com" target=""><img#}
+{#            src="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/240x400.png"#}
+{#            alt="large_banner"/></a></div>#}
+{#</div>#}
+{#<div id="text-2" class="widget widget_text">#}
+{#    <h3 class="title-border dkgreen title-bg-line">#}
+{#        <span>Instagram Feed</span>#}
+{#    </h3>#}
+{#    <div class="textwidget">#}
+{#        <div id="sb_instagram" class="sbi sbi_col_4" style="width:100%; padding-bottom: 10px; "#}
+{#             data-id="197494599" data-num="12" data-res="auto" data-cols="4"#}
+{#             data-options='{&quot;sortby&quot;: &quot;none&quot;, &quot;headercolor&quot;: &quot;ffffff&quot;, &quot;imagepadding&quot;: &quot;5&quot;}'>#}
+{#            <div class="sb_instagram_header" style="padding: 10px; padding-bottom: 0;"></div>#}
+{#            <div id="sbi_images" style="padding: 5px;">#}
+{#                <div class="sbi_loader fa-spin"></div>#}
+{#            </div>#}
+{#            <div id="sbi_load"></div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<div id="tag_cloud-3" class="widget widget_tag_cloud"><h3#}
+{#        class="title-border dkgreen title-bg-line"><span>TagCloud</span></h3>#}
+{#    <div class="tagcloud"><a href='https://demo.themeisle.com/islemag/category/beauty/'#}
+{#                             class='tag-link-40 tag-link-position-1' title='5 topics'#}
+{#                             style='font-size: 15.466666666667pt;'>Beauty</a>#}
+{#        <a href='https://demo.themeisle.com/islemag/category/business/'#}
+{#           class='tag-link-7 tag-link-position-2' title='5 topics'#}
+{#           style='font-size: 15.466666666667pt;'>Business</a>#}
+{#        <a href='https://demo.themeisle.com/islemag/category/reviews/'#}
+{#           class='tag-link-244 tag-link-position-3' title='6 topics'#}
+{#           style='font-size: 22pt;'>Reviews</a>#}
+{#        <a href='https://demo.themeisle.com/islemag/category/technology/'#}
+{#           class='tag-link-8 tag-link-position-4' title='4 topics'#}
+{#           style='font-size: 8pt;'>Technology</a>#}
+{#        <a href='https://demo.themeisle.com/islemag/category/travel/'#}
+{#           class='tag-link-1 tag-link-position-5' title='6 topics'#}
+{#           style='font-size: 22pt;'>Travel</a></div>#}
+{#</div>#}
+
+{#<div id="categories-2" class="widget widget_categories"><h3#}
+{#        class="title-border dkgreen title-bg-line"><span>Categories</span></h3>#}
+{#    <ul>#}
+{#        <li class="cat-item cat-item-40"><a#}
+{#                href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a> (5)#}
+{#        </li>#}
+{#        <li class="cat-item cat-item-7"><a#}
+{#                href="https://demo.themeisle.com/islemag/category/business/">Business</a> (5)#}
+{#        </li>#}
+{#        <li class="cat-item cat-item-244"><a#}
+{#                href="https://demo.themeisle.com/islemag/category/reviews/">Reviews</a> (6)#}
+{#        </li>#}
+{#        <li class="cat-item cat-item-8"><a#}
+{#                href="https://demo.themeisle.com/islemag/category/technology/">Technology</a> (4)#}
+{#        </li>#}
+{#        <li class="cat-item cat-item-1"><a#}
+{#                href="https://demo.themeisle.com/islemag/category/travel/">Travel</a> (6)#}
+{#        </li>#}
+{#    </ul>#}
+{#</div>#}

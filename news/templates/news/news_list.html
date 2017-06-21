@@ -4,7 +4,7 @@
         {% for article in object_list %}
             <a href="{% url 'news-detail' pk=article.id %}">
                 <div class="m-4 blockquote">
-                    <h1 class="display-4">{{ article.publication_date|date }} - {{ article.headline }}</h1>
+                    <h1 class="display-4">{{ article.published_date|date }} - {{ article.headline }}</h1>
                     <small>By : {{ article.reporter }}</small>
                 </div>
             </a>

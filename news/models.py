@@ -41,7 +41,7 @@ class News(models.Model):
     category = models.ForeignKey(Category)
     author = models.ForeignKey(Author)
     created_by = models.ForeignKey(User)
-    publication_date = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def get_thumbnail(self):
@@ -50,6 +50,7 @@ class News(models.Model):
         if img_sources:
             return img_sources[0]
         else:
+            # todo return default image
             return None
 
     def __str__(self):

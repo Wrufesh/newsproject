@@ -66,6 +66,7 @@
         {"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/demo.themeisle.com\/islemag\/","name":"Islemag","potentialAction":{"@type":"SearchAction","target":"https:\/\/demo.themeisle.com\/islemag\/?s={search_term_string}","query-input":"required name=search_term_string"}}
 
 
+
     </script>
     <!-- / Yoast SEO plugin. -->
 
@@ -400,8 +401,10 @@
             <div class="islemag-content-left col-md-9">
                 {% block content %} {% endblock %}
             </div><!-- End .islemag-content-left -->
-
-            {% block aside %}{% endblock %}
+            <div>
+            <aside class="col-md-3 sidebar islemag-content-right" role="complementary">
+                {% include '_aside.html' %}
+            </aside>
         </div><!-- End .row -->
     </div><!-- End .container -->
 
