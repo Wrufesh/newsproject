@@ -13,6 +13,9 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+    def get_topic_count(self):
+        return self.news.all().count()
+
 
 class Author(models.Model):
     name = models.CharField(max_length=100, unique=True)
