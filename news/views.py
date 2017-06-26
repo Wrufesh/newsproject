@@ -15,11 +15,16 @@ class NewsListView(ListView):
         context = super().get_context_data(**kwargs)
         category_id = self.request.GET.get('category_id', None)
         author_id = self.request.GET.get('author_id', None)
+        tag_id = self.request.GET.get('tag_id', None)
         news = News.objects.all().order_by('published_date')
         if category_id:
             news = news.filter(category__id=category_id)
         if author_id:
             news = news.filter(category__id=category_id)
+
+        if tag_id:
+            news = news.filter(tags__id=tag_id)
+
         context['object_list'] = news
         return context
 

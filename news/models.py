@@ -6,6 +6,13 @@ from lxml import html
 from django.core.cache import cache
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+
 class Author(models.Model):
     name = models.CharField(max_length=100)
     photo = models.ImageField(upload_to='media', null=True, blank=True)
@@ -40,6 +47,7 @@ class News(models.Model):
     article = models.TextField()
     category = models.ForeignKey(Category)
     author = models.ForeignKey(Author)
+    tags = models.ManyToManyField(Tag, related_name='news')
     created_by = models.ForeignKey(User)
     published_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

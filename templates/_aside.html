@@ -1,5 +1,7 @@
 {% load category %}
 {% get_latest_news as latest_articles %}
+{% get_all_tags as tags %}
+
 <div id="st_latest_posts_widget-3" class="widget widget_st_latest_posts_widget"><h3
         class="title-border dkgreen title-bg-line"><span>Latest Posts</span></h3>
     <div class="latest-posts">
@@ -19,6 +21,15 @@
         {% endfor %}
 
     </div>
+</div>
+<div id="tag_cloud-3" class="widget widget_tag_cloud"><h3
+        class="title-border dkgreen title-bg-line"><span>TagCloud</span></h3>
+    <div class="tagcloud">
+        {% for tag in tags %}
+            <a href='{% url 'news-list' %}?tag_id={{ tag.id }}'
+           class=' tag-link-position-3' title='6 topics'
+           style='font-size: 22pt;'>{{ tag.name }}</a>
+        {% endfor %}
 </div>
 {#<div id="islemag_multiple_ads-widget-3" class="widget islemag_multiple_ads"><h3#}
 {#        class="title-border dkgreen title-bg-line"><span>Small Banners</span></h3>#}
@@ -58,24 +69,7 @@
 {#        </div>#}
 {#    </div>#}
 {#</div>#}
-{#<div id="tag_cloud-3" class="widget widget_tag_cloud"><h3#}
-{#        class="title-border dkgreen title-bg-line"><span>TagCloud</span></h3>#}
-{#    <div class="tagcloud"><a href='https://demo.themeisle.com/islemag/category/beauty/'#}
-{#                             class='tag-link-40 tag-link-position-1' title='5 topics'#}
-{#                             style='font-size: 15.466666666667pt;'>Beauty</a>#}
-{#        <a href='https://demo.themeisle.com/islemag/category/business/'#}
-{#           class='tag-link-7 tag-link-position-2' title='5 topics'#}
-{#           style='font-size: 15.466666666667pt;'>Business</a>#}
-{#        <a href='https://demo.themeisle.com/islemag/category/reviews/'#}
-{#           class='tag-link-244 tag-link-position-3' title='6 topics'#}
-{#           style='font-size: 22pt;'>Reviews</a>#}
-{#        <a href='https://demo.themeisle.com/islemag/category/technology/'#}
-{#           class='tag-link-8 tag-link-position-4' title='4 topics'#}
-{#           style='font-size: 8pt;'>Technology</a>#}
-{#        <a href='https://demo.themeisle.com/islemag/category/travel/'#}
-{#           class='tag-link-1 tag-link-position-5' title='6 topics'#}
-{#           style='font-size: 22pt;'>Travel</a></div>#}
-{#</div>#}
+
 
 {#<div id="categories-2" class="widget widget_categories"><h3#}
 {#        class="title-border dkgreen title-bg-line"><span>Categories</span></h3>#}
