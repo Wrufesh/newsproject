@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from lxml import html
+from django.db.models import Q
 
 from django.core.cache import cache
 
@@ -60,6 +61,9 @@ class News(models.Model):
         else:
             # todo return default image
             return None
+
+    def get_related_articles(self):
+        return News.objects.filter(tags__in=self.tags.all()).distinct()
 
     def __str__(self):
         return self.headline

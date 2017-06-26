@@ -39,6 +39,53 @@
                 </footer>
             </div>
 
+            <div class="col-md-12">
+                <h3 class="mb30 title-underblock custom blog-related-carousel-title  ">Related Posts</h3>
+            </div>
+
+            <div class="post-section islemag-template2">
+
+                {% for article in object.get_related_articles %}
+                    <div class="col-sm-6">
+                        <article
+                                class="entry entry-overlay entry-block eb-small {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
+                            <div class="entry-media">
+                                <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
+                                   class="category-block"
+                                   title="Category {{ article.category.name }}">{{ article.category.name }}</a>
+                                <figure>
+                                    <a href="{% url 'news-detail' article.id %}"
+                                       title="{{ article.headine }}">
+                                        <img width="110" height="110"
+                                             src="{{ article.get_thumbnail }}"
+                                             class="attachment-islemag_sections_small_thumbnail size-islemag_sections_small_thumbnail wp-post-image"
+                                             alt="Article Thumbnail"/> </a>
+                                </figure> <!-- End figure -->
+                            </div> <!-- End .entry-media -->
+
+                            <h3 class="entry-title"><a
+                                    href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
+
+
+                            <div class="entry-meta">
+                                <span class="entry-overlay-date"><i
+                                        class="fa fa-calendar"></i>{{ article.published_date }}</span>
+                                <span class="entry-separator">/</span>
+
+                                {# todo comment link and number #}
+                                <a href="{% url 'news-detail' article.id %}"
+                                   class="entry-comments">0 Comments</a>
+                                <div>
+                                    Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
+                                                class="entry-author">{{ article.author.name }}</a>
+                                </div>
+                            </div> <!-- End .entry-meta -->
+                        </article> <!-- End .entry-block -->
+                    </div> <!-- End .col-sm-6 -->
+                {% endfor %}
+
+            </div> <!-- End .post-section -->
+
 
         </div><!-- End .row -->
         <div class="mb20"></div><!-- space -->
@@ -49,143 +96,7 @@
 
 
 {##}
-{#Related Post#}
-{#<h3 class="mb30 title-underblock custom blog-related-carousel-title  ">Related Posts</h3>#}
-{#<div class="blog-related-carousel owl-carousel small-nav  ">#}
-{#    <article class="entry entry-box">#}
-{#        <div class="entry-media">#}
-{#            <div class="entry-media">#}
-{#                <figure>#}
-{#                    <a href="https://demo.themeisle.com/islemag/2016/04/20/kitty-in-the-garden/">#}
-{#                        <img class="owl-lazy"#}
-{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_56/h_138,w_248/v1461159723/kitty_viszdt_do2cai_blozu3.jpg"/>#}
-{#                    </a>#}
-{#                </figure>#}
-{#            </div><!-- End .entry-media -->#}
-{#        </div><!-- End .entry-media -->#}
-{##}
-{#        <div class="entry-content-wrapper">#}
-{#            <span class="entry-date">20<span>APR</span></span>#}
-{#            <h2 class="entry-title"><a#}
-{#                    href="https://demo.themeisle.com/islemag/2016/04/20/kitty-in-the-garden/">13#}
-{#                Amazing Cat Pictures</a></h2>#}
-{#            <div class="entry-content">#}
-{#                <p>One of the things I have found myself needing over and over again as I#}
-{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
-{#            </div><!-- End .entry-content -->#}
-{#        </div><!-- End .entry-content-wrapper -->#}
-{##}
-{#        <footer class="entry-footer clearfix">#}
-{#																<span class="entry-cats">#}
-{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
-{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
-{#            <!-- End .entry-tags -->#}
-{##}
-{#            <a href="https://demo.themeisle.com/islemag/2016/04/20/kitty-in-the-garden/"#}
-{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
-{#        </footer>#}
-{#    </article>#}
-{#    <article class="entry entry-box">#}
-{#        <div class="entry-media">#}
-{#            <div class="entry-media">#}
-{#                <figure>#}
-{#                    <a href="https://demo.themeisle.com/islemag/2016/04/20/hyacinth-macaw/">#}
-{#                        <img class="owl-lazy"#}
-{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_99/h_138,w_248/v1461159724/hyacinth_macaw_anctjt_il5dv0_tovtce.jpg"/>#}
-{#                    </a>#}
-{#                </figure>#}
-{#            </div><!-- End .entry-media -->#}
-{#        </div><!-- End .entry-media -->#}
-{##}
-{#        <div class="entry-content-wrapper">#}
-{#            <span class="entry-date">20<span>APR</span></span>#}
-{#            <h2 class="entry-title"><a#}
-{#                    href="https://demo.themeisle.com/islemag/2016/04/20/hyacinth-macaw/">Hyacinth#}
-{#                Macaw</a></h2>#}
-{#            <div class="entry-content">#}
-{#                <p>One of the things I have found myself needing over and over again as I#}
-{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
-{#            </div><!-- End .entry-content -->#}
-{#        </div><!-- End .entry-content-wrapper -->#}
-{##}
-{#        <footer class="entry-footer clearfix">#}
-{#																<span class="entry-cats">#}
-{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
-{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
-{#            <!-- End .entry-tags -->#}
-{##}
-{#            <a href="https://demo.themeisle.com/islemag/2016/04/20/hyacinth-macaw/"#}
-{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
-{#        </footer>#}
-{#    </article>#}
-{#    <article class="entry entry-box">#}
-{#        <div class="entry-media">#}
-{#            <div class="entry-media">#}
-{#                <figure>#}
-{#                    <a href="https://demo.themeisle.com/islemag/2016/04/20/2324/">#}
-{#                        <img class="owl-lazy"#}
-{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_56/h_138,w_248/v1461159730/wood_stack_xmppln_ocoynv_jqgtug.jpg"/>#}
-{#                    </a>#}
-{#                </figure>#}
-{#            </div><!-- End .entry-media -->#}
-{#        </div><!-- End .entry-media -->#}
-{##}
-{#        <div class="entry-content-wrapper">#}
-{#            <span class="entry-date">20<span>APR</span></span>#}
-{#            <h2 class="entry-title"><a#}
-{#                    href="https://demo.themeisle.com/islemag/2016/04/20/2324/">Stack#}
-{#                Lumber</a></h2>#}
-{#            <div class="entry-content">#}
-{#                <p>One of the things I have found myself needing over and over again as I#}
-{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
-{#            </div><!-- End .entry-content -->#}
-{#        </div><!-- End .entry-content-wrapper -->#}
-{##}
-{#        <footer class="entry-footer clearfix">#}
-{#																<span class="entry-cats">#}
-{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
-{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
-{#            <!-- End .entry-tags -->#}
-{##}
-{#            <a href="https://demo.themeisle.com/islemag/2016/04/20/2324/"#}
-{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
-{#        </footer>#}
-{#    </article>#}
-{#    <article class="entry entry-box">#}
-{#        <div class="entry-media">#}
-{#            <div class="entry-media">#}
-{#                <figure>#}
-{#                    <a href="https://demo.themeisle.com/islemag/2015/12/17/quod-requiras/">#}
-{#                        <img class="owl-lazy"#}
-{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_56/h_138,w_248/v1461145857/kid_with_bike_uhsprp_s3k9cj_sedcgf.jpg"/>#}
-{#                    </a>#}
-{#                </figure>#}
-{#            </div><!-- End .entry-media -->#}
-{#        </div><!-- End .entry-media -->#}
-{##}
-{#        <div class="entry-content-wrapper">#}
-{#            <span class="entry-date">17<span>DEC</span></span>#}
-{#            <h2 class="entry-title"><a#}
-{#                    href="https://demo.themeisle.com/islemag/2015/12/17/quod-requiras/">My#}
-{#                First Bike</a></h2>#}
-{#            <div class="entry-content">#}
-{#                <p>One of the things I have found myself needing over and over again as I#}
-{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
-{#            </div><!-- End .entry-content -->#}
-{#        </div><!-- End .entry-content-wrapper -->#}
-{##}
-{#        <footer class="entry-footer clearfix">#}
-{#																<span class="entry-cats">#}
-{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
-{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
-{#            <!-- End .entry-tags -->#}
-{##}
-{#            <a href="https://demo.themeisle.com/islemag/2015/12/17/quod-requiras/"#}
-{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
-{#        </footer>#}
-{#    </article>#}
-{#</div><!-- End .blog-related-carousel -->#}
-{##}
+
 
 {#Comments#}
 {#<div id="comments" class="comments-area">#}
