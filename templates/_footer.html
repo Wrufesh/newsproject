@@ -1,61 +1,55 @@
-
 <footer id="footer" class="footer-inverse" role="contentinfo">
-        <div id="footer-inner">
-            <div class="container">
-                <div class="row">
+    <div id="footer-inner">
+        <div class="container">
+            <div class="row">
 
-                    <div class="col-md-8 col-sm-12">
-                        <a class="islemag-footer-logo" href="https://demo.themeisle.com/islemag/"><img
-                                src="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/02/islemaglogo.png"
-                                alt="Islemag"></a>
-                        <div class="islemag-footer-content"><p>
-                            We are a creative company, who works with passion and love. We provide the best services you
-                            need. We help you to get better.
-                        </p>
-                            <address>
-                                Visit us: <a href="#">themeisle.com</a><br/>
-                                Email: <a href="mailto:test@test.com">youremail@mail.com</a><br/>
-                                <br/>
-                                <abbr title="copyright">© Themeisle</abbr>
-                            </address>
-                        </div>
-                        <span class="social-icons-label">FIND US AT:</span>
-                        <div class="footer-social-icons">
-                            <a class="footer-social-icon"><i class="fa none"></i></a></div><!-- .footer-social-icons -->
-                    </div><!-- .col-md-3.col-sm-6 -->
+                <div class="col-md-8 col-sm-12">
+                    <a class="islemag-footer-logo" href="https://demo.themeisle.com/islemag/"><img
+                            src="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/02/islemaglogo.png"
+                            alt="Islemag"></a>
+                    <div class="islemag-footer-content"><p>
+                        We are a creative company, who works with passion and love. We provide the best services you
+                        need. We help you to get better.
+                    </p>
+                        <address>
+                            Visit us: <a href="#">themeisle.com</a><br/>
+                            Email: <a href="mailto:test@test.com">youremail@mail.com</a><br/>
+                            <br/>
+                            <abbr title="copyright">© Themeisle</abbr>
+                        </address>
+                    </div>
+                    <span class="social-icons-label">FIND US AT:</span>
+                    <div class="footer-social-icons">
+                        <a class="footer-social-icon"><i class="fa none"></i></a></div><!-- .footer-social-icons -->
+                </div><!-- .col-md-3.col-sm-6 -->
 
-                    <div class="col-md-4 col-sm-12"
-                         id="sidebar-widgets-area-1" aria-label="Widgets Area 1">
-                        <div id="tag_cloud-4" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3>
-                            <div class="tagcloud">
-                                {% for tag in tags %}
-                                    <a href='{% url 'news-list' %}?tag_id={{ tag.id }}'
-                                                     class='tag-link-118 tag-link-position-1' title='{{ tag.topic.count }} topic'
-                                                     style='font-size: 8pt;'>{{ tag.name }}</a>
-                                {% endfor %}
-                            </div>
+                <div class="col-md-4 col-sm-12"
+                     id="sidebar-widgets-area-1" aria-label="Widgets Area 1">
+                    <div id="tag_cloud-4" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3>
+                        <div class="tagcloud">
+                            {% for tag in tags %}
+                                <a href='{% url 'news-list' %}?tag_id={{ tag.id }}'
+                                   class='tag-link-118 tag-link-position-1' title='{{ tag.topic.count }} topic'
+                                   style='font-size: 8pt;'>{{ tag.name }}</a>
+                            {% endfor %}
                         </div>
                     </div>
-
-                </div><!-- End .row -->
-            </div><!-- End .container -->
-        </div><!-- End #footer-inner -->
-        <div id="footer-bottom" class="no-bg">
-            <div class="islemag-footer-container">
-                <div class="col-md-8 col-md-push-4 islemag-footer-menu">
-                    <div class="menu-top-navbar-container">
-                        <ul class="footer-menu" id="menu-top-navbar" class="menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-255"><a
-                                    href="{% url 'contact' %}">Contact Us</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3501"><a
-                                    href="{% url 'about' %}">About</a></li>
-                        </ul>
-                    </div>
-                </div><!-- End .col-md-6 -->
-                <div class="col-md-4 col-md-pull-8 powerdby">
-                    Powered by:
-                    <a href="https://awecode.com" rel="nofollow">Awecode</a> </div><!-- End .col-md-6 -->
+                </div>
 
             </div><!-- End .row -->
-        </div><!-- End #footer-bottom -->
-    </footer><!-- End #footer -->
+        </div><!-- End .container -->
+    </div><!-- End #footer-inner -->
+    <div id="footer-bottom" class="no-bg">
+        <div class="islemag-footer-container">
+            <div class="col-md-6 pull-right">
+                <ul class="footer-menu" id="menu-top-navbar" class="menu">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-255"><a
+                            href="{% url 'contact' %}">Contact Us</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3501"><a
+                            href="{% url 'about' %}">About</a></li>
+                </ul>
+            </div><!-- End .col-md-6 -->
+
+        </div><!-- End .row -->
+    </div><!-- End #footer-bottom -->
+</footer><!-- End #footer -->

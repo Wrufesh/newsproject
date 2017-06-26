@@ -1,4 +1,3 @@
-
 {% load category %}
 {% load static %}
 {% get_latest_news as latest_articles %}
@@ -12,7 +11,7 @@
 
     <title>{% block title %} Home {% endblock %}</title>
 
-{#    todo seo#}
+    {#    todo seo#}
 
 
     <link rel='stylesheet' id='dashicons-css'
@@ -25,20 +24,20 @@
           href='{% static 'public/css/latest-post-style.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='islemag-bootstrap-css'
-          href='{% static 'public/css/bootstrap.min.css' %}'
+          href='{% static 'public/plugins/bootstrap/dist/css/bootstrap.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='islemag-style-css'
           href='{% static 'public/css/theme-style.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='islemag-fontawesome-css'
-          href='{% static 'public/css/font-awesome.min.css' %}'
+          href='{% static 'public/plugins/font-awesome/css/font-awesome.min.css' %}'
           type='text/css' media='all'/>
-    <link rel='stylesheet' id='islemag-fonts-css'
-          href='{% static 'public/css/googleapi-fonts.css' %}'
-          type='text/css' media='all'/>
-    <script type='text/javascript'
-            src='{% static 'public/js/jquery.js' %}'></script>
 
+    <script type='text/javascript'
+            src='{% static 'public/plugins/jquery/dist/jquery.js' %}'></script>
+
+    <script type='text/javascript'
+            src='{% static 'public/plugins/bootstrap/dist/js/bootstrap.js' %}'></script>
 
 
     <link rel='stylesheet' id='islemag-fonts-css'
@@ -65,39 +64,17 @@
             <div class="islemag-content-left col-md-9">
                 {% block content %} {% endblock %}
             </div><!-- End .islemag-content-left -->
-            <div>
-                <aside class="col-md-3 sidebar islemag-content-right" role="complementary">
-                    {% include '_aside.html' %}
-                </aside>
-            </div><!-- End .row -->
-        </div><!-- End .container -->
+            <aside class="col-md-3 sidebar islemag-content-right" role="complementary">
+                {% include '_aside.html' %}
+            </aside>
+        </div><!-- End .row -->
+    </div><!-- End .container -->
 
 
-        {% include '_footer.html' %}
-    </div><!-- #page -->
+    {% include '_footer.html' %}
+</div><!-- #page -->
 </div><!-- End #wrapper -->
-{##}
-<style type="text/css">
 
-    @media (min-width: 820px) {
-        #review-statistics .review-wrap-up .review-wu-left .rev-wu-image, #review-statistics .review-wrap-up .review-wu-left .review-wu-grade {
-            height: 140.56px;
-        }
-
-        #review-statistics .review-wrap-up .review-wu-left .review-wu-grade .cwp-review-chart .cwp-review-percentage {
-
-            margin-top: 13.056%;
-        }
-
-        #review-statistics .review-wrap-up .review-wu-left .review-wu-grade .cwp-review-chart span {
-            font-size: 28px;
-        }
-
-    }
-
-
-
-</style>
 
 <script type='text/javascript'
         src='{% static 'public/js/script.index.js' %}'></script>

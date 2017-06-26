@@ -3,10 +3,7 @@
     {{ object.headline }}
 {% endblock %}
 {% block content %}
-    {#    <h1>{{ object.headline }}</h1>#}
-    {#    <p>{{ object.article|safe }}</p>#}
-    {#    <p>Reporter: {{ object.reporter }}</p>#}
-    {#    <p>Published: {{ object.published_date|date }}</p>#}
+
     <main id="main" class="site-main" role="main">
 
 
@@ -56,10 +53,10 @@
                 <h3 class="mb30 title-underblock custom blog-related-carousel-title  ">Related Posts</h3>
             </div>
 
-            <div class="post-section islemag-template2">
+{#            <div class="post-section islemag-template2">#}
 
                 {% for article in object.get_related_articles %}
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 post-section islemag-template2">
                         <article
                                 class="entry entry-overlay entry-block eb-small {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
                             <div class="entry-media">
@@ -97,7 +94,7 @@
                     </div> <!-- End .col-sm-6 -->
                 {% endfor %}
 
-            </div> <!-- End .post-section -->
+{#            </div> <!-- End .post-section -->#}
 
 
         </div><!-- End .row -->
