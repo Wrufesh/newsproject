@@ -1,7 +1,251 @@
 {% extends 'base.html' %}
-{% block content %}
-    <h1>{{ object.headline }}</h1>
-    <p>{{ object.article|safe }}</p>
-    <p>Reporter: {{ object.reporter }}</p>
-    <p>Published: {{ object.published_date|date }}</p>
+{% block title %}
+    {{ object.headline }}
 {% endblock %}
+{% block content %}
+    {#    <h1>{{ object.headline }}</h1>#}
+    {#    <p>{{ object.article|safe }}</p>#}
+    {#    <p>Reporter: {{ object.reporter }}</p>#}
+    {#    <p>Published: {{ object.published_date|date }}</p>#}
+    <main id="main" class="site-main" role="main">
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <article id="post-4002"
+                         class="entry single post-4002 post type-post status-publish format-standard has-post-thumbnail hentry category-beauty tag-html tag-php tag-tag tag-tags tag-wordpress tag-world">
+
+                    <span class="entry-date">{{ object.published_date|date }}</span>
+                    <h2 class="entry-title">{{ object.headline }}</h2>
+                    <div class="entry-content">
+                        {{ object.article|safe }}
+                    </div><!-- End .entry-content -->
+                </article>
+            </div><!-- End .col-md-12 -->
+
+            <div class="col-md-12">
+                <footer class="entry-footer clearfix">
+            										<span class="entry-cats">
+            						<span class="entry-label">
+            							<i class="fa fa-tag"></i> Categories:						</span>
+            						<a href="{% url 'news-list' %}?category_id={{ object.category.id }}">{{ object.category.name }}</a>					</span>
+                    <!-- End .entry-tags -->
+                    <span class="entry-separator">/</span>
+                    <a href="#" class="entry-comments">No Responses</a>
+                    <span class="entry-separator">/</span>
+                    by <a href="{% url 'news-list' %}?author_id={{ object.author_id }}"
+                          class="entry-author">{{ object.author.name }}</a>
+                </footer>
+            </div>
+
+
+        </div><!-- End .row -->
+        <div class="mb20"></div><!-- space -->
+
+
+    </main><!-- #main -->
+{% endblock %}
+
+
+{##}
+{#Related Post#}
+{#<h3 class="mb30 title-underblock custom blog-related-carousel-title  ">Related Posts</h3>#}
+{#<div class="blog-related-carousel owl-carousel small-nav  ">#}
+{#    <article class="entry entry-box">#}
+{#        <div class="entry-media">#}
+{#            <div class="entry-media">#}
+{#                <figure>#}
+{#                    <a href="https://demo.themeisle.com/islemag/2016/04/20/kitty-in-the-garden/">#}
+{#                        <img class="owl-lazy"#}
+{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_56/h_138,w_248/v1461159723/kitty_viszdt_do2cai_blozu3.jpg"/>#}
+{#                    </a>#}
+{#                </figure>#}
+{#            </div><!-- End .entry-media -->#}
+{#        </div><!-- End .entry-media -->#}
+{##}
+{#        <div class="entry-content-wrapper">#}
+{#            <span class="entry-date">20<span>APR</span></span>#}
+{#            <h2 class="entry-title"><a#}
+{#                    href="https://demo.themeisle.com/islemag/2016/04/20/kitty-in-the-garden/">13#}
+{#                Amazing Cat Pictures</a></h2>#}
+{#            <div class="entry-content">#}
+{#                <p>One of the things I have found myself needing over and over again as I#}
+{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
+{#            </div><!-- End .entry-content -->#}
+{#        </div><!-- End .entry-content-wrapper -->#}
+{##}
+{#        <footer class="entry-footer clearfix">#}
+{#																<span class="entry-cats">#}
+{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
+{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
+{#            <!-- End .entry-tags -->#}
+{##}
+{#            <a href="https://demo.themeisle.com/islemag/2016/04/20/kitty-in-the-garden/"#}
+{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
+{#        </footer>#}
+{#    </article>#}
+{#    <article class="entry entry-box">#}
+{#        <div class="entry-media">#}
+{#            <div class="entry-media">#}
+{#                <figure>#}
+{#                    <a href="https://demo.themeisle.com/islemag/2016/04/20/hyacinth-macaw/">#}
+{#                        <img class="owl-lazy"#}
+{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_99/h_138,w_248/v1461159724/hyacinth_macaw_anctjt_il5dv0_tovtce.jpg"/>#}
+{#                    </a>#}
+{#                </figure>#}
+{#            </div><!-- End .entry-media -->#}
+{#        </div><!-- End .entry-media -->#}
+{##}
+{#        <div class="entry-content-wrapper">#}
+{#            <span class="entry-date">20<span>APR</span></span>#}
+{#            <h2 class="entry-title"><a#}
+{#                    href="https://demo.themeisle.com/islemag/2016/04/20/hyacinth-macaw/">Hyacinth#}
+{#                Macaw</a></h2>#}
+{#            <div class="entry-content">#}
+{#                <p>One of the things I have found myself needing over and over again as I#}
+{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
+{#            </div><!-- End .entry-content -->#}
+{#        </div><!-- End .entry-content-wrapper -->#}
+{##}
+{#        <footer class="entry-footer clearfix">#}
+{#																<span class="entry-cats">#}
+{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
+{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
+{#            <!-- End .entry-tags -->#}
+{##}
+{#            <a href="https://demo.themeisle.com/islemag/2016/04/20/hyacinth-macaw/"#}
+{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
+{#        </footer>#}
+{#    </article>#}
+{#    <article class="entry entry-box">#}
+{#        <div class="entry-media">#}
+{#            <div class="entry-media">#}
+{#                <figure>#}
+{#                    <a href="https://demo.themeisle.com/islemag/2016/04/20/2324/">#}
+{#                        <img class="owl-lazy"#}
+{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_56/h_138,w_248/v1461159730/wood_stack_xmppln_ocoynv_jqgtug.jpg"/>#}
+{#                    </a>#}
+{#                </figure>#}
+{#            </div><!-- End .entry-media -->#}
+{#        </div><!-- End .entry-media -->#}
+{##}
+{#        <div class="entry-content-wrapper">#}
+{#            <span class="entry-date">20<span>APR</span></span>#}
+{#            <h2 class="entry-title"><a#}
+{#                    href="https://demo.themeisle.com/islemag/2016/04/20/2324/">Stack#}
+{#                Lumber</a></h2>#}
+{#            <div class="entry-content">#}
+{#                <p>One of the things I have found myself needing over and over again as I#}
+{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
+{#            </div><!-- End .entry-content -->#}
+{#        </div><!-- End .entry-content-wrapper -->#}
+{##}
+{#        <footer class="entry-footer clearfix">#}
+{#																<span class="entry-cats">#}
+{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
+{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
+{#            <!-- End .entry-tags -->#}
+{##}
+{#            <a href="https://demo.themeisle.com/islemag/2016/04/20/2324/"#}
+{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
+{#        </footer>#}
+{#    </article>#}
+{#    <article class="entry entry-box">#}
+{#        <div class="entry-media">#}
+{#            <div class="entry-media">#}
+{#                <figure>#}
+{#                    <a href="https://demo.themeisle.com/islemag/2015/12/17/quod-requiras/">#}
+{#                        <img class="owl-lazy"#}
+{#                             data-src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto,c_crop,h_570,w_1024,x_0,y_56/h_138,w_248/v1461145857/kid_with_bike_uhsprp_s3k9cj_sedcgf.jpg"/>#}
+{#                    </a>#}
+{#                </figure>#}
+{#            </div><!-- End .entry-media -->#}
+{#        </div><!-- End .entry-media -->#}
+{##}
+{#        <div class="entry-content-wrapper">#}
+{#            <span class="entry-date">17<span>DEC</span></span>#}
+{#            <h2 class="entry-title"><a#}
+{#                    href="https://demo.themeisle.com/islemag/2015/12/17/quod-requiras/">My#}
+{#                First Bike</a></h2>#}
+{#            <div class="entry-content">#}
+{#                <p>One of the things I have found myself needing over and over again as I#}
+{#                    design websites is "dummy text" or "filler text", that looks like...</p>#}
+{#            </div><!-- End .entry-content -->#}
+{#        </div><!-- End .entry-content-wrapper -->#}
+{##}
+{#        <footer class="entry-footer clearfix">#}
+{#																<span class="entry-cats">#}
+{#								  <span class="entry-label"><i class="fa fa-tag"></i></span>#}
+{#									<a href="https://demo.themeisle.com/islemag/category/beauty/">Beauty</a>								</span>#}
+{#            <!-- End .entry-tags -->#}
+{##}
+{#            <a href="https://demo.themeisle.com/islemag/2015/12/17/quod-requiras/"#}
+{#               class="entry-readmore text-right">Read More<i class="fa fa-angle-right"></i></a>#}
+{#        </footer>#}
+{#    </article>#}
+{#</div><!-- End .blog-related-carousel -->#}
+{##}
+
+{#Comments#}
+{#<div id="comments" class="comments-area">#}
+{##}
+{##}
+{#            <div id="respond" class="comment-respond">#}
+{#                <h3 id="reply-title" class="comment-reply-title">Leave a Reply#}
+{#                    <small><a rel="nofollow" id="cancel-comment-reply-link"#}
+{#                              href="/islemag/2016/05/11/roofs-pitches-trusses-framing/#respond"#}
+{#                              style="display:none;">Cancel reply</a></small>#}
+{#                </h3>#}
+{#                <form action="https://demo.themeisle.com/islemag/wp-comments-post.php" method="post"#}
+{#                      id="commentform" class="comment-form" novalidate>#}
+{#                    <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>#}
+{#                        Required fields are marked <span class="required">*</span></p>#}
+{#                    <div class="row">#}
+{#                        <div class="col-sm-4">#}
+{#                            <div class="form-group">#}
+{#                                <label for="author" class="input-desc">Name<span#}
+{#                                        class="required">*</span></label> <input id="author"#}
+{#                                                                                 class="form-control"#}
+{#                                                                                 placeholder="Name"#}
+{#                                                                                 name="author" type="text"#}
+{#                                                                                 value="" size="30"#}
+{#                                                                                 aria-required='true'/>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-sm-4">#}
+{#                            <div class="form-group">#}
+{#                                <label for="email" class="input-desc">Email<span#}
+{#                                        class="required">*</span></label> <input id="email"#}
+{#                                                                                 class="form-control"#}
+{#                                                                                 placeholder="Your E-mail"#}
+{#                                                                                 name="email" type="text"#}
+{#                                                                                 value="" size="30"#}
+{#                                                                                 aria-required='true'/>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-sm-4">#}
+{#                            <div class="form-group">#}
+{#                                <label for="url" class="input-desc">Website</label><input id="url"#}
+{#                                                                                          class="form-control"#}
+{#                                                                                          placeholder="Website"#}
+{#                                                                                          name="url"#}
+{#                                                                                          type="text"#}
+{#                                                                                          value=""#}
+{#                                                                                          size="30"/>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <label for="comment" class="input-desc">Comment</label>#}
+{#                        <textarea class="form-control" id="comment" name="comment" aria-required="true"#}
+{#                                  placeholder="Your Message"></textarea>#}
+{#                    </div>#}
+{#                    <p class="form-submit"><input name="submit" type="submit" id="submit"#}
+{#                                                  class="btn btn-dark" value="Post Comment"/> <input#}
+{#                            type='hidden' name='comment_post_ID' value='4002' id='comment_post_ID'/>#}
+{#                        <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>#}
+{#                    </p></form>#}
+{#            </div><!-- #respond -->#}
+{##}
+{#        </div><!-- #comments -->#}
