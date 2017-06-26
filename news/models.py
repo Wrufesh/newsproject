@@ -68,6 +68,10 @@ class News(models.Model):
     def get_related_articles(self):
         return News.objects.filter(tags__in=self.tags.all()).distinct()
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('news-detail', args=[str(self.id)])
+
     def __str__(self):
         return self.headline
 

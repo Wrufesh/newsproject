@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load disqus_tags %}
 {% block title %}
     {{ object.headline }}
 {% endblock %}
@@ -48,6 +49,7 @@
                           class="entry-author">{{ object.author.name }}</a>
                 </footer>
             </div>
+            {% disqus_show_comments %}
 
             <div class="col-md-12">
                 <h3 class="mb30 title-underblock custom blog-related-carousel-title  ">Related Posts</h3>
@@ -92,6 +94,7 @@
                             </div> <!-- End .entry-meta -->
                         </article> <!-- End .entry-block -->
                     </div> <!-- End .col-sm-6 -->
+
                 {% endfor %}
 
 {#            </div> <!-- End .post-section -->#}

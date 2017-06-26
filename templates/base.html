@@ -1,5 +1,6 @@
 {% load category %}
 {% load static %}
+{% load disqus_tags %}
 {% get_latest_news as latest_articles %}
 {% get_all_tags as tags %}
 <!DOCTYPE html>
@@ -50,6 +51,7 @@
           href='{% static 'public/css/custom.css' %}'
           type='text/css' media='all'/>
 
+    {% disqus_dev %}
 
 </head>
 
