@@ -30,8 +30,21 @@
             						<span class="entry-label">
             							<i class="fa fa-tag"></i> Categories:						</span>
             						<a href="{% url 'news-list' %}?category_id={{ object.category.id }}">{{ object.category.name }}</a>					</span>
+                    <span class="entry-cats">
+            						<span class="entry-label">
+            							<i class="fa fa-tag"></i> Tags:						</span>
+
+                        {% for tag in object.tags.all %}
+                            {% if not forloop.first %}
+                                <span class="entry-separator">/</span>
+                            {% endif %}
+                            <a href="{% url 'news-list' %}?tag_id={{ tag.id }}">{{ tag.name }}</a>
+                        {% endfor %}
+
+            											</span>
                     <!-- End .entry-tags -->
                     <span class="entry-separator">/</span>
+                    {#                    todo comment#}
                     <a href="#" class="entry-comments">No Responses</a>
                     <span class="entry-separator">/</span>
                     by <a href="{% url 'news-list' %}?author_id={{ object.author_id }}"

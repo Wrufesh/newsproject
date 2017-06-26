@@ -20,11 +20,12 @@ class NewsListView(ListView):
         if category_id:
             news = news.filter(category__id=category_id)
         if author_id:
-            news = news.filter(category__id=category_id)
+            news = news.filter(author__id=author_id)
 
         if tag_id:
             news = news.filter(tags__id=tag_id)
 
+        context['object_list'] = news
         context['object_list'] = news
         return context
 

@@ -15,7 +15,7 @@ class Tag(models.Model):
 
 
 class Author(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     photo = models.ImageField(upload_to='media', null=True, blank=True)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Author(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     show_in_menu = models.BooleanField(default=True)
 
     @classmethod
