@@ -1,0 +1,63 @@
+body.custom-background {
+    background-image: url("https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/kaboompics.com_Green-bokeh-1024x683.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.title-border span {
+    color: #454545
+}
+
+.post .entry-title, .post h1, .post h2, .post h3, .post h4, .post h5, .post h6, .post h1 a, .post h2 a, .post h3 a, .post h4 a, .post h5 a, .post h6 a {
+    color: #454545
+}
+
+.page-header h1 {
+    color: #454545
+}
+
+.sidebar .widget li a, .islemag-content-right, .islemag-content-right a, .post .entry-content, .post .entry-content p,
+.post .entry-cats, .post .entry-cats a, .post .entry-comments.post .entry-separator, .post .entry-footer a,
+.post .entry-footer span, .post .entry-footer .entry-cats, .post .entry-footer .entry-cats a, .author-content {
+    color: #454545
+}
+
+.islemag-top-container .entry-block .entry-overlay-meta .entry-title a {
+    color: #ffffff
+}
+
+.islemag-top-container .entry-overlay-meta .entry-overlay-date {
+    color: #ffffff
+}
+
+.islemag-top-container .entry-overlay-meta .entry-separator {
+    color: #ffffff
+}
+
+.islemag-top-container .entry-overlay-meta > a {
+    color: #ffffff
+}
+
+.home.blog .islemag-content-left .entry-title a, .blog-related-carousel .entry-title a {
+    color: #454545
+}
+
+.islemag-content-left .entry-meta, .islemag-content-left .blog-related-carousel .entry-content p,
+.islemag-content-left .blog-related-carousel .entry-cats .entry-label, .islemag-content-left .blog-related-carousel .entry-cats a,
+.islemag-content-left .blog-related-carousel > a, .islemag-content-left .blog-related-carousel .entry-footer > a {
+    color: #454545
+}
+
+.islemag-content-left .entry-meta .entry-separator {
+    color: #454545
+}
+
+.islemag-content-left .entry-meta a {
+    color: #454545
+}
+
+.islemag-content-left .islemag-template3 .col-sm-6 .entry-overlay p {
+    color: #454545
+}

@@ -1,5 +1,6 @@
 
 {% load category %}
+{% load static %}
 {% get_latest_news as latest_articles %}
 {% get_all_tags as tags %}
 <!DOCTYPE html>
@@ -13,268 +14,38 @@
 
 {#    todo seo#}
 
-    <style type="text/css">
-        img.wp-smiley,
-        img.emoji {
-            display: inline !important;
-            border: none !important;
-            box-shadow: none !important;
-            height: 1em !important;
-            width: 1em !important;
-            margin: 0 .07em !important;
-            vertical-align: -0.1em !important;
-            background: none !important;
-            padding: 0 !important;
-        }
-    </style>
-
 
     <link rel='stylesheet' id='dashicons-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-includes/css/dashicons.min.css?ver=4.7.5'
+          href='{% static 'public/css/dashicons.min.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='menu-icons-extra-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/menu-icons/css/extra.min.css?ver=0.10.2'
+          href='{% static 'public/css/extra.min.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='latest-posts-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/latest-posts/style.css?ver=4.7.5'
-          type='text/css' media='all'/>
-
-{#todo now do contact us form and about us form#}
-    <link rel='stylesheet' id='pirate_forms_front_styles-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/pirate-forms/css/front.css?ver=4.7.5'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='post-views-counter-frontend-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/post-views-counter/css/frontend.css?ver=4.7.5'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='SFSImainCss-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/ultimate-social-media-icons/css/sfsi-style.css?ver=4.7.5'
+          href='{% static 'public/css/latest-post-style.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='islemag-bootstrap-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/themes/islemag/css/bootstrap.min.css?ver=3.3.5'
+          href='{% static 'public/css/bootstrap.min.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='islemag-style-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/themes/islemag/style.css?ver=4.7.5'
+          href='{% static 'public/css/theme-style.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='islemag-fontawesome-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/themes/islemag/css/font-awesome.min.css?ver=4.4.0'
+          href='{% static 'public/css/font-awesome.min.css' %}'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='islemag-fonts-css'
-          href='//fonts.googleapis.com/css?family=Lato%3A400%2C700%7CRaleway%3A400%2C500%2C600%2C700%7COpen+Sans%3A400%2C700%2C600&#038;subset=latin%2Clatin-ext'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='PI_stt_front-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/simple-twitter-tweets/css/stt.min.css?ver=4.7.5'
-          type='text/css' media='all'/>
-    <link rel='stylesheet' id='scss-css'
-          href='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/cache/busting/67/sccss.css?ver=1495719148'
+          href='{% static 'public/css/googleapi-fonts.css' %}'
           type='text/css' media='all'/>
     <script type='text/javascript'
-            src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
-    <script type='text/javascript'
-            src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var pirateFormsObject = {"errors": ""};
-        /* ]]> */
-    </script>
-    <script type='text/javascript'
-            src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/pirate-forms/js/scripts-general.js?ver=4.7.5'></script>
-    <script type='text/javascript'
-            src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1.6.1'></script>
-    <link rel='https://api.w.org/' href='https://demo.themeisle.com/islemag/wp-json/'/>
-    <link rel="EditURI" type="application/rsd+xml" title="RSD"
-          href="https://demo.themeisle.com/islemag/xmlrpc.php?rsd"/>
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml"
-          href="https://demot-vertigostudio.netdna-ssl.com/islemag/wp-includes/wlwmanifest.xml"/>
-    <meta name="generator" content="WordPress 4.7.5"/>
-    <link rel='shortlink' href='https://demo.themeisle.com/islemag/'/>
-    <link rel="alternate" type="application/json+oembed"
-          href="https://demo.themeisle.com/islemag/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo.themeisle.com%2Fislemag%2F"/>
-    <link rel="alternate" type="text/xml+oembed"
-          href="https://demo.themeisle.com/islemag/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo.themeisle.com%2Fislemag%2F&#038;format=xml"/>
-    <link rel="canonical" href="http://themeisle.com/themes/islemag/"/>
-    <meta name="specificfeeds-verification-code-ZjhIOTJuNE1LZ1Y1VFUvV2FlSEFwQVRJVzNLcHFyYzFkNzdnVjU1cmR4QktNa0d0clJEc0x3V2RlOWpQZFY0Mk5XbkVpYnBQYVpPVlMrVC9XZWdseXJTWGNkU21xT2RIUTBPUGZJYW9XekE0UXdZTEttbGg4dkx2UEw1VDkyOFd8UmE0MytHd3RWbjFMMWg4cW1aM0IzbkxJL083WTRzbXlFRmVLM3dtaDc3VT0="
-          content="gZq1hphPZJhe26gffztr"/>
-    <script>
-      jQuery(document).ready(function (e) {
-        jQuery("body").addClass("sfsi_1.48")
-      });
-      function sfsi_processfurther(ref) {
-        var feed_id = 'ZjhIOTJuNE1LZ1Y1VFUvV2FlSEFwQVRJVzNLcHFyYzFkNzdnVjU1cmR4QktNa0d0clJEc0x3V2RlOWpQZFY0Mk5XbkVpYnBQYVpPVlMrVC9XZWdseXJTWGNkU21xT2RIUTBPUGZJYW9XekE0UXdZTEttbGg4dkx2UEw1VDkyOFd8UmE0MytHd3RWbjFMMWg4cW1aM0IzbkxJL083WTRzbXlFRmVLM3dtaDc3VT0=';
-        var feedtype = 8;
-        var email = jQuery(ref).find('input[name="data[Widget][email]"]').val();
-        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if ((email != "Enter your email") && (filter.test(email))) {
-          if (feedtype == "8") {
-            var url = "'.$url.'" + feed_id + "/" + feedtype;
-            window.open(url, "popupwindow", "scrollbars=yes,width=1080,height=760");
-            return true;
-          }
-        } else {
-          alert("Please enter email address");
-          jQuery(ref).find('input[name="data[Widget][email]"]').focus();
-          return false;
-        }
-      }
-    </script>
-    <style type="text/css" aria-selected="true">
-        .sfsi_subscribe_Popinner {
-            width: 100% !important;
-            height: auto !important;
-            border: 1px solid #b5b5b5 !important;
-            padding: 18px 0px !important;
-            background-color: #ffffff !important;
-        }
+            src='{% static 'public/js/jquery.js' %}'></script>
 
-        .sfsi_subscribe_Popinner form {
-            margin: 0 20px !important;
-        }
 
-        .sfsi_subscribe_Popinner h5 {
-            font-family: Helvetica, Arial, sans-serif !important;
-            font-weight: bold !important;
-            color: #000000 !important;
-            font-size: 16px !important;
-            text-align: center !important;
-            margin: 0 0 10px !important;
-            padding: 0 !important;
-        }
 
-        .sfsi_subscription_form_field {
-            margin: 5px 0 !important;
-            width: 100% !important;
-            display: inline-flex;
-            display: -webkit-inline-flex;
-        }
+    <link rel='stylesheet' id='islemag-fonts-css'
+          href='{% static 'public/css/custom.css' %}'
+          type='text/css' media='all'/>
 
-        .sfsi_subscription_form_field input {
-            width: 100% !important;
-            padding: 10px 0px !important;
-        }
 
-        .sfsi_subscribe_Popinner input[type=email] {
-            font-family: Helvetica, Arial, sans-serif !important;
-            font-style: normal !important;
-            color: !important;
-            font-size: 14px !important;
-            text-align: center !important;
-        }
-
-        .sfsi_subscribe_Popinner input[type=email]::-webkit-input-placeholder {
-            font-family: Helvetica, Arial, sans-serif !important;
-            font-style: normal !important;
-            color: !important;
-            font-size: 14px !important;
-            text-align: center !important;
-        }
-
-        .sfsi_subscribe_Popinner input[type=email]:-moz-placeholder { /* Firefox 18- */
-            font-family: Helvetica, Arial, sans-serif !important;
-            font-style: normal !important;
-            color: !important;
-            font-size: 14px !important;
-            text-align: center !important;
-        }
-
-        .sfsi_subscribe_Popinner input[type=email]::-moz-placeholder { /* Firefox 19+ */
-            font-family: Helvetica, Arial, sans-serif !important;
-            font-style: normal !important;
-            color: !important;
-            font-size: 14px !important;
-            text-align: center !important;
-        }
-
-        .sfsi_subscribe_Popinner input[type=email]:-ms-input-placeholder {
-            font-family: Helvetica, Arial, sans-serif !important;
-            font-style: normal !important;
-            color: !important;
-            font-size: 14px !important;
-            text-align: center !important;
-        }
-
-        .sfsi_subscribe_Popinner input[type=submit] {
-            font-family: Helvetica, Arial, sans-serif !important;
-            font-weight: bold !important;
-            color: #000000 !important;
-            font-size: 16px !important;
-            text-align: center !important;
-            background-color: #dedede !important;
-        }
-    </style>
-    <script type='text/javascript'>
-      var cwpCustomBarIcon = '';
-      var isSetToPro = '1';
-      var trackcolor = '#ebebeb';
-    </script>
-    <!-- Google Tag Manager for WordPress by DuracellTomi - http://duracelltomi.com -->
-    <script data-cfasync="false" type="text/javascript">
-      var gtm4wp_datalayer_name = "dataLayer";
-      var dataLayer = dataLayer || [];
-    </script>
-    <!-- End Google Tag Manager for WordPress by DuracellTomi -->
-    <style type="text/css" id="custom-background-css">
-        body.custom-background {
-            background-image: url("https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/kaboompics.com_Green-bokeh-1024x683.jpg");
-            background-position: center top;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-    </style>
-    <style type="text/css">.title-border span {
-        color: #454545
-    }
-
-    .post .entry-title, .post h1, .post h2, .post h3, .post h4, .post h5, .post h6, .post h1 a, .post h2 a, .post h3 a, .post h4 a, .post h5 a, .post h6 a {
-        color: #454545
-    }
-
-    .page-header h1 {
-        color: #454545
-    }
-
-    .sidebar .widget li a, .islemag-content-right, .islemag-content-right a, .post .entry-content, .post .entry-content p,
-    .post .entry-cats, .post .entry-cats a, .post .entry-comments.post .entry-separator, .post .entry-footer a,
-    .post .entry-footer span, .post .entry-footer .entry-cats, .post .entry-footer .entry-cats a, .author-content {
-        color: #454545
-    }
-
-    .islemag-top-container .entry-block .entry-overlay-meta .entry-title a {
-        color: #ffffff
-    }
-
-    .islemag-top-container .entry-overlay-meta .entry-overlay-date {
-        color: #ffffff
-    }
-
-    .islemag-top-container .entry-overlay-meta .entry-separator {
-        color: #ffffff
-    }
-
-    .islemag-top-container .entry-overlay-meta > a {
-        color: #ffffff
-    }
-
-    .home.blog .islemag-content-left .entry-title a, .blog-related-carousel .entry-title a {
-        color: #454545
-    }
-
-    .islemag-content-left .entry-meta, .islemag-content-left .blog-related-carousel .entry-content p,
-    .islemag-content-left .blog-related-carousel .entry-cats .entry-label, .islemag-content-left .blog-related-carousel .entry-cats a,
-    .islemag-content-left .blog-related-carousel > a, .islemag-content-left .blog-related-carousel .entry-footer > a {
-        color: #454545
-    }
-
-    .islemag-content-left .entry-meta .entry-separator {
-        color: #454545
-    }
-
-    .islemag-content-left .entry-meta a {
-        color: #454545
-    }
-
-    .islemag-content-left .islemag-template3 .col-sm-6 .entry-overlay p {
-        color: #454545
-    }</style>
 </head>
 
 <body class="home page-template page-template-template-frontpage page-template-template-frontpage-php page page-id-701 custom-background wp-custom-logo group-blog">
@@ -305,100 +76,7 @@
         {% include '_footer.html' %}
     </div><!-- #page -->
 </div><!-- End #wrapper -->
-<!--facebook like and share js -->
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!--<div id="fb-root"></div>
-<script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1425108201100352&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>-->
-<!--google share and  like and e js -->
-<script type="text/javascript">
-  window.___gcfg = {
-    lang: 'en-US'
-  };
-  (function () {
-    var po = document.createElement('script');
-    po.type = 'text/javascript';
-    po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(po, s);
-  })();
-</script>
-
-<!-- google share -->
-<script type="text/javascript">
-  (function () {
-    var po = document.createElement('script');
-    po.type = 'text/javascript';
-    po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(po, s);
-  })();
-</script>
-<!--pinit js -->
-<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-<!-- twitter JS End -->
-<script>!function (d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (!d.getElementById(id)) {
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }
-}(document, "script", "twitter-wjs");</script>
-<script>
-  jQuery(document).scroll(function ($) {
-    var y = jQuery(this).scrollTop();
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      if (jQuery(window).scrollTop() + jQuery(window).height() >= jQuery(document).height() - 100) {
-        jQuery('.sfsi_outr_div').css({
-          'z-index': '9996',
-          opacity: 1,
-          top: jQuery(window).scrollTop() + "px",
-          position: "absolute"
-        });
-        jQuery('.sfsi_outr_div').fadeIn(200);
-        jQuery('.sfsi_FrntInner_chg').fadeIn(200);
-      }
-      else {
-        jQuery('.sfsi_outr_div').fadeOut();
-        jQuery('.sfsi_FrntInner_chg').fadeOut();
-      }
-    }
-    else {
-      if (jQuery(window).scrollTop() + jQuery(window).height() >= jQuery(document).height() - 3) {
-        jQuery('.sfsi_outr_div').css({
-          'z-index': '9996',
-          opacity: 1,
-          top: jQuery(window).scrollTop() + 200 + "px",
-          position: "absolute"
-        });
-        jQuery('.sfsi_outr_div').fadeIn(200);
-        jQuery('.sfsi_FrntInner_chg').fadeIn(200);
-      }
-      else {
-        jQuery('.sfsi_outr_div').fadeOut();
-        jQuery('.sfsi_FrntInner_chg').fadeOut();
-      }
-    }
-  });
-</script>
+{##}
 <style type="text/css">
 
     @media (min-width: 820px) {
@@ -417,103 +95,13 @@
 
     }
 
-    #review-statistics .review-wrap-up div.cwpr-review-top {
-        border-top: 5px solid #3BAEDA;
-    }
-
-    .user-comments-grades .comment-meta-grade-bar,
-    #review-statistics .review-wu-bars ul li {
-        background: #E1E2E0;
-    }
-
-    #review-statistics .rev-option.customBarIcon ul li {
-        color: #E1E2E0;
-    }
-
-    #review-statistics .review-wrap-up .review-wu-right ul li, #review-statistics .review-wu-bars h3, .review-wu-bars span, #review-statistics .review-wrap-up .cwpr-review-top .cwp-item-category a {
-        color: #3D3D3D;
-    }
-
-    #review-statistics .review-wrap-up .review-wu-right .pros h2 {
-        color: #8DC153;
-    }
-
-    #review-statistics .review-wrap-up .review-wu-right .cons h2 {
-        color: #C15353;
-    }
-
-    div.affiliate-button a {
-        border: 2px solid #3BAEDA;
-    }
-
-    div.affiliate-button a:hover {
-        border: 2px solid #3BAEDA;
-    }
-
-    div.affiliate-button a {
-        background: #ffffff;
-    }
-
-    div.affiliate-button a:hover {
-        background: #3BAEDA;
-    }
-
-    div.affiliate-button a span {
-        color: #3BAEDA;
-    }
-
-    div.affiliate-button a:hover span {
-        color: #FFFFFF;
-    }
-
-    div.affiliate-button a span {
-        background: url("https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/wp-product-review/images/cart-icon.png") no-repeat left center;
-    }
-
-    div.affiliate-button a:hover span {
-        background: url("https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/wp-product-review/images/cart-icon-hover.png") no-repeat left center;
-    }
 
 
 </style>
-<script type="text/javascript">
-  var c1 = "#FF7F66";
-  var c2 = "#FFCE55";
-  var c3 = "#50C1E9";
-  var c4 = "#8DC153";
-</script>
 
-<!-- Google Tag Manager (noscript) -->
 <script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/themes/islemag/js/islemag-wigdet.js?ver=1.0.0'></script>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    var sb_instagram_js_options = {"sb_instagram_at": "197494599.1677ed0.f135cfbe0c954ed68340eb63833f1fd7"};
-    /* ]]> */
-</script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/instagram-feed/js/sb-instagram.min.js?ver=1.4.8'></script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/ultimate-social-media-icons/js/shuffle/modernizr.custom.min.js?ver=4.7.5'></script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/ultimate-social-media-icons/js/shuffle/jquery.shuffle.min.js?ver=4.7.5'></script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/ultimate-social-media-icons/js/shuffle/random-shuffle-min.js?ver=4.7.5'></script>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    var ajax_object = {"ajax_url": "https:\/\/demo.themeisle.com\/islemag\/wp-admin\/admin-ajax.php"};
-    var ajax_object = {
-      "ajax_url": "https:\/\/demo.themeisle.com\/islemag\/wp-admin\/admin-ajax.php",
-      "plugin_url": "https:\/\/demo.themeisle.com\/islemag\/wp-content\/plugins\/ultimate-social-media-icons\/"
-    };
-    /* ]]> */
-</script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/plugins/ultimate-social-media-icons/js/custom.js?ver=4.7.5'></script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/themes/islemag/js/script.index.js?ver=1.0.0'></script>
+        src='{% static 'public/js/script.index.js' %}'></script>
+
 <script type='text/javascript'>
     /* <![CDATA[ */
     var screenReaderText = {
@@ -523,16 +111,12 @@
     var stickyMenu = {"disable_sticky": "1"};
     /* ]]> */
 </script>
+
 <script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/themes/islemag/js/script.all.js?ver=1.0.1'></script>
+        src='{% static 'public/js/script.all.js' %}'></script>
 <script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/themes/islemag/js/owl.carousel.min.js?ver=2.0.0'></script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-includes/js/comment-reply.min.js?ver=4.7.5'></script>
-<script type='text/javascript'
-        src='https://demot-vertigostudio.netdna-ssl.com/islemag/wp-includes/js/wp-embed.min.js?ver=4.7.5'></script>
+        src='{% static 'public/js/owl.carousel.min.js' %}'></script>
+
 
 </body>
 </html>
-
-<!-- Cached page for great performance - Debug: cached@1498031765 -->
