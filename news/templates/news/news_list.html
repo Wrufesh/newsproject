@@ -6,10 +6,10 @@
     {% for article in object_list %}
 
         <article id="post-{{ article.id }}"
-                 class="entry post-{{ article.id }} post type-post status-publish format-standard has-post-thumbnail hentry category-technology">
+                 class="entry post-{{ article.id }} post type-post status-publish format-standard has-post-thumbnail hentry">
 
             <div class="entry-media">
-                <figure>
+{#                <figure>#}
                     <a href="{% url 'news-detail' article.id %}">
 {#                        todo background quite dark#}
                         <img width="595" height="397"
@@ -17,7 +17,7 @@
                              class="attachment-islemag_blog_post_no_crop size-islemag_blog_post_no_crop wp-post-image"
                              alt=""/> </a>
 
-                </figure>
+{#                </figure>#}
             </div><!-- End .entry-media -->
             <span class="entry-date">{{ article.published_date | date }}</span>
             <h2 class="entry-title"><a href="{% url 'news-detail' article.id %}"

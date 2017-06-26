@@ -4834,6 +4834,7 @@ ul > li:hover > a,
 .entry-media figure {
 	position: relative;
 	text-align: center;
+	background: black;
 }
 
 .blog .entry-media figure,
@@ -5093,6 +5094,7 @@ ul > li:hover > a,
 
 	.entry-media {
 		margin-bottom: 25px;
+		background: black;
 	}
 
 	.entry-title {
