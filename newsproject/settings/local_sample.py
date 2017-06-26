@@ -22,3 +22,7 @@ CACHES = {
         "KEY_PREFIX": "example"
     }
 }
+
+
+# DISQUS_API_KEY = 'pfUEbSkVcOk0NOzTy1RN8rG4QQrX1V5b6h6EDMrCJVwd6Aid6SQDE15pPknOxUHP'
+# DISQUS_WEBSITE_SHORTNAME = 'wrufesh'

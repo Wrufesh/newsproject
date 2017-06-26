@@ -1,6 +1,5 @@
 {% load category %}
 {% load static %}
-{% load disqus_tags %}
 {% get_latest_news as latest_articles %}
 {% get_all_tags as tags %}
 <!DOCTYPE html>
@@ -51,7 +50,6 @@
           href='{% static 'public/css/custom.css' %}'
           type='text/css' media='all'/>
 
-    {% disqus_dev %}
 
 </head>
 
@@ -101,6 +99,8 @@
         src='{% static 'public/js/script.all.js' %}'></script>
 <script type='text/javascript'
         src='{% static 'public/js/owl.carousel.min.js' %}'></script>
+
+{% block extra_script %}{% endblock %}
 
 
 </body>
