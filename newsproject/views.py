@@ -16,3 +16,10 @@ def index(request):
     context['news_by_category'] = news_by_category
 
     return render(request, 'index.html', context)
+
+
+def contact(request):
+    return render(request, 'contact.html', {})
+
+def about(request):
+    return render(request, 'about.html', {})
