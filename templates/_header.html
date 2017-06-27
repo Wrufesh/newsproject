@@ -1,50 +1,39 @@
 {% load category %}
 {% get_current_categories as categories %}
 
-<header id="header" class="site-header" role="banner">
-
-    <div class="row ">
-        <div class="col-md-3 col-sm-3 col-xs-12 navbar-brand">
-            <a href="https://demo.themeisle.com/islemag/" class="custom-logo-link" rel="home" itemprop="url"><img
-                    width="166" height="97"
-                    src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto/v1461146117/logo2_cwd4xq.png"
-                    class="custom-logo" alt="" itemprop="logo"/></a>
-            <div class="header-logo-wrap text-header islemag_only_customizer"><h1 itemprop="headline"
-                                                                                  id="site-title"
-                                                                                  class="site-title"><a
-                    href="https://demo.themeisle.com/islemag/" title="Islemag" rel="home">Islemag</a></h1>
-                <p itemprop="description" id="site-description" class="site-description">Just another Demos Sites
-                    site</p></div>
-        </div>
-
-
+<div class="row ">
+    <div class="col-md-3 col-sm-3 col-xs-12 navbar-brand">
+        <a href="https://demo.themeisle.com/islemag/" class="custom-logo-link" rel="home" itemprop="url"><img
+                width="166" height="97"
+                src="https://res.cloudinary.com/vertigo-studio-srl/image/upload/f_auto/v1461146117/logo2_cwd4xq.png"
+                class="custom-logo" alt="" itemprop="logo"/></a>
     </div>
+</div>
 
-    <div id="navbar" class="navbar ">
-        <nav id="site-navigation" class="navigation main-navigation" role="navigation">
-            <button class="menu-toggle">Menu</button>
-            <a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>
-            <div class="menu-main-menu-container">
-                <ul id="primary-menu" class="nav-menu">
-                    <li id="menu-item-336"
-                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-336">
-                        <a href="{% url 'home' %}"><i class="_mi dashicons dashicons-admin-home"
-                                                      aria-hidden="true"
-                                                      style="font-size:2em;"></i><span
-                                class="visuallyhidden">Home</span></a></li>
-
-                    {% for category in categories %}
-                        <li id="menu-item-{{ category.id }}"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-{{ category.id }}">
-                            <a
-                                    href="{% url 'news-list' %}?category_id={{ category.id }}">{{ category.name }}</a>
-                        </li>
-                    {% endfor %}
-
-                </ul>
-            </div>
-        </nav><!-- #site-navigation -->
-    </div><!-- #navbar -->
+<nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #2a2a2a;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a href="{% url 'home' %}" class="nav-item nav-link text-white"><i
+                    class="_mi dashicons dashicons-admin-home"
+                    aria-hidden="true"
+                    style="font-size:2em;"></i><span
+                    class="visuallyhidden">Home</span></a>
 
 
-</header><!-- End #header -->
+            {% for category in categories %}
+                <a class="nav-item nav-link text-white"
+                   href="{% url 'news-list' %}?category_id={{ category.id }}">{{ category.name }}</a>
+            {% endfor %}
+
+        </div>
+    </div>
+</nav>
+
+
+
+

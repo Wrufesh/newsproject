@@ -1,39 +1,28 @@
 {% extends 'base.html' %}
 {% block carousel %}
-    <div class="islemag-top-container">
-        <div class="owl-carousel islemag-top-carousel rect-dots">
-            {% for news in carousel_news %}
-                <article
-                        class="entry entry-overlay entry-block {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
-                    <div class="entry-media">
-                        <figure>
-                            <a href="{% url 'news-detail' news.id %}"
-                               title="{{ news.headline }}">
-                                <img class="owl-lazy"
-                                     data-src="{{ news.get_thumbnail }}"/>
-                            </a>
-                        </figure>
-                    </div><!-- End .entry-media -->
-
-                    <div class="entry-overlay-meta">
-                        <h2 class="entry-title"><a
-                                href="{% url 'news-detail' news.id %}"
-                                rel="bookmark">{{ news.headline }}</a></h2>        <span
+    <div class="card-group">
+        {% for news in carousel_news %}
+            <div class="card">
+                <img width="250px" height="3005px" class="card-img-top" src="{{ news.get_thumbnail }}" alt="Card image cap">
+                <div class="card-block">
+                    <a href="{% url "news-detail" news.id %}"><h4 class="card-title">{{ news.headline }}</h4></a>
+                </div>
+                <div class="card-footer">
+                                        <small class="text-muted">Last updated 3 mins ago</small>
+                    <span
                             class="entry-overlay-date"><i class="fa fa-calendar"></i>{{ news.published_date }}</span>
-                        <span class="entry-separator">/</span>
-                        {# todo load number of comment and comment link (class link)#}
-                        <a href="{% url 'news-detail' news.id %}"
-                           class="entry-comments"><i class="fa fa-comments"></i>0</a>
-                        {# todo end load number of comment and comment link#}
-                        <span class="entry-separator">/</span>
-                        <a href="{% url 'news-list' %}?author_id={{ article.author.id }}" class="entry-author"><i
-                                class="fa fa-user"></i>{{ news.author.name }}</a>
-                    </div><!-- End .entry-overlay-meta -->
-                </article>
-            {% endfor %}
-
-        </div><!-- End .islemag-top-carousel -->
-    </div><!-- End .islemag-top-container -->
+                    <span class="entry-separator">/</span>
+                     todo load number of comment and comment link (class link)
+                    <a href="{% url 'news-detail' news.id %}"
+                       class="entry-comments"><i class="fa fa-comments"></i>0</a>
+                     todo end load number of comment and comment link
+                    <span class="entry-separator">/</span>
+                    <a href="{% url 'news-list' %}?author_id={{ article.author.id }}" class="entry-author"><i
+                            class="fa fa-user"></i>{{ news.author.name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
 
 {% block content %}
@@ -93,7 +82,8 @@
 
                 {% for article in carousel_news %}
                     <div class="col-sm-6">
-                        <article class="entry entry-overlay entry-block eb-small {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
+                        <article
+                                class="entry entry-overlay entry-block eb-small {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
                             <div class="entry-media">
                                 <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
                                    class="category-block"

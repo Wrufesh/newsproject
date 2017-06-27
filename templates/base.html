@@ -57,11 +57,9 @@
 <div id="wrapper" class="boxed">
 
     {#    Header#}
-    {% include '_header.html' %}
+        {% include '_header.html' %}
 
-    <div id="content" class="site-content">
-        {% block carousel %}{% endblock %}
-    </div><!-- #content -->
+            {% block carousel %}{% endblock %}
 
 
     <div class="container">
@@ -82,23 +80,23 @@
 </div><!-- End #wrapper -->
 
 
-<script type='text/javascript'
-        src='{% static 'public/js/script.index.js' %}'></script>
+{#<script type='text/javascript'#}
+{#        src='{% static 'public/js/script.index.js' %}'></script>#}
+{##}
+{#<script type='text/javascript'>#}
+{#    /* <![CDATA[ */#}
+{#    var screenReaderText = {#}
+{#      "expand": "<span class=\"screen-reader-text\">expand child menu<\/span>",#}
+{#      "collapse": "<span class=\"screen-reader-text\">collapse child menu<\/span>"#}
+{#    };#}
+{#    var stickyMenu = {"disable_sticky": "1"};#}
+{#    /* ]]> */#}
+{#</script>#}
 
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    var screenReaderText = {
-      "expand": "<span class=\"screen-reader-text\">expand child menu<\/span>",
-      "collapse": "<span class=\"screen-reader-text\">collapse child menu<\/span>"
-    };
-    var stickyMenu = {"disable_sticky": "1"};
-    /* ]]> */
-</script>
-
-<script type='text/javascript'
-        src='{% static 'public/js/script.all.js' %}'></script>
-<script type='text/javascript'
-        src='{% static 'public/js/owl.carousel.min.js' %}'></script>
+{#<script type='text/javascript'#}
+{#        src='{% static 'public/js/script.all.js' %}'></script>#}
+{#<script type='text/javascript'#}
+{#        src='{% static 'public/js/owl.carousel.min.js' %}'></script>#}
 
 {% block extra_script %}{% endblock %}
 
