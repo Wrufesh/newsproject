@@ -5,7 +5,11 @@ from .models import News, Category, Author, Tag
 
 
 class SomeModelAdmin(SummernoteModelAdmin):
-    pass
+    exclude = ('created_by',)
+
+    def save_model(self, request, obj, form, change):
+        obj.created_by = request.user
+        obj.save()
 
 
 admin.site.register(News, SomeModelAdmin)

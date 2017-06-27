@@ -57,10 +57,10 @@
 
             											</span>
                     <!-- End .entry-tags -->
-                    <span class="entry-separator">/</span>
+{#                    <span class="entry-separator">/</span>#}
                     {#                    todo comment#}
-                    <a href="#" class="entry-comments">No Responses</a>
-                    <span class="entry-separator">/</span>
+{#                    <a href="#" class="entry-comments">No Responses</a>#}
+                    <span class="entry-separator"></span>
                     by <a href="{% url 'news-list' %}?author_id={{ object.author_id }}"
                           class="entry-author">{{ object.author.name }}</a>
                 </footer>
@@ -106,11 +106,11 @@
                         <div class="entry-meta">
                                 <span class="entry-overlay-date"><i
                                         class="fa fa-calendar"></i>{{ article.published_date }}</span>
-                            <span class="entry-separator">/</span>
-
+{#                            <span class="entry-separator">/</span>#}
+{##}
                             {# todo comment link and number #}
-                            <a href="{% url 'news-detail' article.id %}"
-                               class="entry-comments">0 Comments</a>
+{#                            <a href="{% url 'news-detail' article.id %}"#}
+{#                               class="entry-comments">0 Comments</a>#}
                             <div>
                                 Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
                                             class="entry-author">{{ article.author.name }}</a>

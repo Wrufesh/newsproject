@@ -16,7 +16,7 @@ class NewsListView(ListView):
         category_id = self.request.GET.get('category_id', None)
         author_id = self.request.GET.get('author_id', None)
         tag_id = self.request.GET.get('tag_id', None)
-        news = News.objects.all().order_by('published_date')
+        news = News.objects.all().order_by('-published_date')
         if category_id:
             news = news.filter(category__id=category_id)
         if author_id:
