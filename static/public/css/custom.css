@@ -1,9 +1,10 @@
 body.custom-background {
-    background-image: url("https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/kaboompics.com_Green-bokeh-1024x683.jpg");
-    background-position: center top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background-image: url("https://demot-vertigostudio.netdna-ssl.com/islemag/wp-content/uploads/sites/67/2016/04/kaboompics.com_Green-bokeh-1024x683.jpg");*/
+    /*background-position: center top;*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+    background-color: honeydew;
 }
 
 .title-border span {

@@ -84,38 +84,46 @@
                     <div class="col-sm-6">
                         <article
                                 class="entry entry-overlay entry-block eb-small {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
-                            <div class="entry-media blist">
-                                <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
-                                   class="category-block"
-                                   title="Category {{ article.category.name }}">{{ article.category.name }}</a>
-                                <figure>
-                                    <a href="{% url 'news-detail' article.id %}"
-                                       title="{{ article.headine }}">
-                                        <img width="110" height="110"
-                                             src="{{ article.get_thumbnail }}"
-                                             class="attachment-islemag_sections_small_thumbnail size-islemag_sections_small_thumbnail wp-post-image img-thumbnail"
-                                             alt="Article Thumbnail"/> </a>
-                                </figure> <!-- End figure -->
-                            </div> <!-- End .entry-media -->
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-4">
+                                    <div class="entry-media blist">
+                                        <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
+                                           class="category-block"
+                                           title="Category {{ article.category.name }}">{{ article.category.name }}</a>
+                                        <figure>
+                                            <a href="{% url 'news-detail' article.id %}"
+                                               title="{{ article.headine }}">
+                                                <img width="110" height="110"
+                                                     src="{{ article.get_thumbnail }}"
+                                                     class="attachment-islemag_sections_small_thumbnail size-islemag_sections_small_thumbnail wp-post-image img-thumbnail"
+                                                     alt="Article Thumbnail"/> </a>
+                                        </figure> <!-- End figure -->
+                                    </div> <!-- End .entry-media -->
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-8">
+                                    <h3 class="entry-title"><a
+                                            href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
 
-                            <h3 class="entry-title"><a
-                                    href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
 
-
-                            <div class="entry-meta">
+                                    <div class="entry-meta">
                                 <span class="entry-overlay-date"><i
                                         class="fa fa-calendar"></i>{{ article.published_date }}</span>
-                                <span class="entry-separator">/</span>
-                                <span class="comments-link"> <a href="{% url 'news-detail' article.id %}#disqus_thread">
+                                        <span class="entry-separator">/</span>
+                                        <span class="comments-link"> <a
+                                                href="{% url 'news-detail' article.id %}#disqus_thread">
                                 <i class="fa fa-comments"></i>
                                 <span class="disqus-comment-count"
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>
                             </a></span>
-                                <div>
-                                    Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
-                                                class="entry-author">{{ article.author.name }}</a>
+                                        <div>
+                                            Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
+                                                        class="entry-author">{{ article.author.name }}</a>
+                                        </div>
+                                    </div> <!-- End .entry-meta -->
                                 </div>
-                            </div> <!-- End .entry-meta -->
+                            </div>
+
+
                         </article> <!-- End .entry-block -->
                     </div> <!-- End .col-sm-6 -->
                 {% endfor %}

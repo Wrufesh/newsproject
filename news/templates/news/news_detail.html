@@ -84,38 +84,47 @@
                 <div class="col-sm-6 post-section islemag-template2">
                     <article
                             class="entry entry-overlay entry-block eb-small {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
-                        <div class="entry-media blist">
-                            <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
-                               class="category-block"
-                               title="Category {{ article.category.name }}">{{ article.category.name }}</a>
-                            <figure>
-                                <a href="{% url 'news-detail' article.id %}"
-                                   title="{{ article.headine }}">
-                                    <img width="110" height="110"
-                                         src="{{ article.get_thumbnail }}"
-                                         class="attachment-islemag_sections_small_thumbnail size-islemag_sections_small_thumbnail wp-post-image img-thumbnail"
-                                         alt="Article Thumbnail"/> </a>
-                            </figure> <!-- End figure -->
-                        </div> <!-- End .entry-media -->
 
-                        <h3 class="entry-title"><a
-                                href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="entry-media blist">
+                                    <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
+                                       class="category-block"
+                                       title="Category {{ article.category.name }}">{{ article.category.name }}</a>
+                                    <figure>
+                                        <a href="{% url 'news-detail' article.id %}"
+                                           title="{{ article.headine }}">
+                                            <img width="110" height="110"
+                                                 src="{{ article.get_thumbnail }}"
+                                                 class="attachment-islemag_sections_small_thumbnail size-islemag_sections_small_thumbnail wp-post-image img-thumbnail"
+                                                 alt="Article Thumbnail"/> </a>
+                                    </figure> <!-- End figure -->
+                                </div> <!-- End .entry-media -->
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-8">
+                                <h3 class="entry-title"><a
+                                        href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
 
 
-                        <div class="entry-meta">
+                                <div class="entry-meta">
                                 <span class="entry-overlay-date"><i
                                         class="fa fa-calendar"></i>{{ article.published_date }}</span>
-                                                        <span class="entry-separator">/</span>
-                            <span class="comments-link"> <a href="{% url 'news-detail' article.id %}#disqus_thread">
+                                    <span class="entry-separator">/</span>
+                                    <span class="comments-link"> <a
+                                            href="{% url 'news-detail' article.id %}#disqus_thread">
                                 <i class="fa fa-comments"></i>
                                 <span class="disqus-comment-count"
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>
                             </a></span>
-                            <div>
-                                Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
-                                            class="entry-author">{{ article.author.name }}</a>
+                                    <div>
+                                        Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
+                                                    class="entry-author">{{ article.author.name }}</a>
+                                    </div>
+                                </div> <!-- End .entry-meta -->
                             </div>
-                        </div> <!-- End .entry-meta -->
+                        </div>
+
+
                     </article> <!-- End .entry-block -->
                 </div> <!-- End .col-sm-6 -->
 
@@ -130,70 +139,3 @@
 
     </main><!-- #main -->
 {% endblock %}
-
-
-{##}
-
-
-{#Comments#}
-{#<div id="comments" class="comments-area">#}
-{##}
-{##}
-{#            <div id="respond" class="comment-respond">#}
-{#                <h3 id="reply-title" class="comment-reply-title">Leave a Reply#}
-{#                    <small><a rel="nofollow" id="cancel-comment-reply-link"#}
-{#                              href="/islemag/2016/05/11/roofs-pitches-trusses-framing/#respond"#}
-{#                              style="display:none;">Cancel reply</a></small>#}
-{#                </h3>#}
-{#                <form action="https://demo.themeisle.com/islemag/wp-comments-post.php" method="post"#}
-{#                      id="commentform" class="comment-form" novalidate>#}
-{#                    <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>#}
-{#                        Required fields are marked <span class="required">*</span></p>#}
-{#                    <div class="row">#}
-{#                        <div class="col-sm-4">#}
-{#                            <div class="form-group">#}
-{#                                <label for="author" class="input-desc">Name<span#}
-{#                                        class="required">*</span></label> <input id="author"#}
-{#                                                                                 class="form-control"#}
-{#                                                                                 placeholder="Name"#}
-{#                                                                                 name="author" type="text"#}
-{#                                                                                 value="" size="30"#}
-{#                                                                                 aria-required='true'/>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-sm-4">#}
-{#                            <div class="form-group">#}
-{#                                <label for="email" class="input-desc">Email<span#}
-{#                                        class="required">*</span></label> <input id="email"#}
-{#                                                                                 class="form-control"#}
-{#                                                                                 placeholder="Your E-mail"#}
-{#                                                                                 name="email" type="text"#}
-{#                                                                                 value="" size="30"#}
-{#                                                                                 aria-required='true'/>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="col-sm-4">#}
-{#                            <div class="form-group">#}
-{#                                <label for="url" class="input-desc">Website</label><input id="url"#}
-{#                                                                                          class="form-control"#}
-{#                                                                                          placeholder="Website"#}
-{#                                                                                          name="url"#}
-{#                                                                                          type="text"#}
-{#                                                                                          value=""#}
-{#                                                                                          size="30"/>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    <div class="form-group">#}
-{#                        <label for="comment" class="input-desc">Comment</label>#}
-{#                        <textarea class="form-control" id="comment" name="comment" aria-required="true"#}
-{#                                  placeholder="Your Message"></textarea>#}
-{#                    </div>#}
-{#                    <p class="form-submit"><input name="submit" type="submit" id="submit"#}
-{#                                                  class="btn btn-dark" value="Post Comment"/> <input#}
-{#                            type='hidden' name='comment_post_ID' value='4002' id='comment_post_ID'/>#}
-{#                        <input type='hidden' name='comment_parent' id='comment_parent' value='0'/>#}
-{#                    </p></form>#}
-{#            </div><!-- #respond -->#}
-{##}
-{#        </div><!-- #comments -->#}
