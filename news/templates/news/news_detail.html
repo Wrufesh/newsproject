@@ -105,11 +105,12 @@
                         <div class="entry-meta">
                                 <span class="entry-overlay-date"><i
                                         class="fa fa-calendar"></i>{{ article.published_date }}</span>
-                            {#                            <span class="entry-separator">/</span>#}
-                            {##}
-                            {# todo comment link and number #}
-                            {#                            <a href="{% url 'news-detail' article.id %}"#}
-                            {#                               class="entry-comments">0 Comments</a>#}
+                                                        <span class="entry-separator">/</span>
+                            <span class="comments-link"> <a href="{% url 'news-detail' article.id %}#disqus_thread">
+                                <i class="fa fa-comments"></i>
+                                <span class="disqus-comment-count"
+                                      data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>
+                            </a></span>
                             <div>
                                 Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
                                             class="entry-author">{{ article.author.name }}</a>

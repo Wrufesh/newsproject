@@ -12,7 +12,7 @@
                     {#                        todo background quite dark#}
                     <img width="595" height="397"
                          src="{{ article.get_thumbnail }}"
-                         class="attachment-islemag_blog_post_no_crop size-islemag_blog_post_no_crop wp-post-image"
+                         class="attachment-islemag_blog_post_no_crop size-islemag_blog_post_no_crop wp-post-image "
                          alt=""/>
 
                 </div><!-- End .entry-media -->
@@ -29,12 +29,13 @@
                 <span class="cat-links">Author: <a
                         href="{% url 'news-list' %}?author_id={{ article.author.id }}"
                         rel="category tag">{{ article.author.name }}</a></span>
-                {#                <span#}
-                {#                        class="comments-link"><a#}
-                {#                        href="https://demo.themeisle.com/islemag/2016/04/20/selfie/#respond">Leave a comment</a></span>#}
-                {#                    todo comment#}
+                <span class="comments-link"> <a href="{% url 'news-detail' article.id %}#disqus_thread">
+                    <i class="fa fa-comments"></i>
+                    <span class="disqus-comment-count"
+                          data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>
+                </a></span>
             </footer>
-
+            {#            https://{{ SITE.name }}.com{{ object.get_absolute_url }}#}
 
         </article>
     {% empty %}

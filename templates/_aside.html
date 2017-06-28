@@ -7,7 +7,7 @@
                         href="{% url 'news-detail' article.id %}"><img
                         width="64" height="64"
                         src="{{ article.get_thumbnail }}"
-                        class="img-responsive wp-post-image" alt="Latest News Image"/></a></div>
+                        class="img-responsive wp-post-image img-thumbnail" alt="Latest News Image"/></a></div>
                 <div class="media-body"><h3 class="entry-title"><a
                         href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
                     <div class="entry-meta small"><span class="entry-overlay-date"><i
