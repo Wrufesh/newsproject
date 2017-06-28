@@ -125,7 +125,16 @@ body.custom-background {
 	display: block;
 }
 
-.blist.entry-media > figure > a, .newslist.entry-media {
+/*.newslist.entry-media {*/
+    /*height: 100%;*/
+    /*width:100%*/
+/*}*/
+
+.blist.entry-media > figure{
+    margin-bottom: 0;
+}
+
+.blist.entry-media > figure > a{
     height: 100%;
     width:100%
 }
