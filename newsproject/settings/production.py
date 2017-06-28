@@ -17,7 +17,7 @@ DEBUG = False
 
 SECRET_KEY = 'sx@r#x@+&38p&$7ks4))zacsy!t9cv$o&+lvjl1rhqat^-l8)x'
 
-ALLOWED_HOSTS = ['philately.gov.np', ]
+ALLOWED_HOSTS = []
 
 
 
