@@ -1,24 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}News Update{% endblock %}
 {% block content %}
-{#    <header class="page-header">#}
-{#        <h1 class="page-title">Category: Technology</h1></header><!-- .page-header -->#}
     {% for article in object_list %}
 
         <article id="post-{{ article.id }}"
                  class="entry post-{{ article.id }} post type-post status-publish format-standard has-post-thumbnail hentry">
 
-            <div class="entry-media">
-{#                <figure>#}
-                    <a href="{% url 'news-detail' article.id %}">
-{#                        todo background quite dark#}
-                        <img width="595" height="397"
-                             src="{{ article.get_thumbnail }}"
-                             class="attachment-islemag_blog_post_no_crop size-islemag_blog_post_no_crop wp-post-image"
-                             alt=""/> </a>
 
-{#                </figure>#}
-            </div><!-- End .entry-media -->
+            <a href="{% url 'news-detail' article.id %}">
+                <div class="newslist entry-media">
+                    {#                        todo background quite dark#}
+                    <img width="595" height="397"
+                         src="{{ article.get_thumbnail }}"
+                         class="attachment-islemag_blog_post_no_crop size-islemag_blog_post_no_crop wp-post-image"
+                         alt=""/>
+
+                </div><!-- End .entry-media -->
+            </a>
             <span class="entry-date">{{ article.published_date | date }}</span>
             <h2 class="entry-title"><a href="{% url 'news-detail' article.id %}"
                                        rel="bookmark">{{ article.headline }}</a>
@@ -31,9 +29,9 @@
                 <span class="cat-links">Author: <a
                         href="{% url 'news-list' %}?author_id={{ article.author.id }}"
                         rel="category tag">{{ article.author.name }}</a></span>
-{#                <span#}
-{#                        class="comments-link"><a#}
-{#                        href="https://demo.themeisle.com/islemag/2016/04/20/selfie/#respond">Leave a comment</a></span>#}
+                {#                <span#}
+                {#                        class="comments-link"><a#}
+                {#                        href="https://demo.themeisle.com/islemag/2016/04/20/selfie/#respond">Leave a comment</a></span>#}
                 {#                    todo comment#}
             </footer>
 

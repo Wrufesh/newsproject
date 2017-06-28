@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load  %}
 {% block carousel %}
     <div class="card-group">
         {% for news in top_news %}
@@ -78,7 +79,7 @@
                     <div class="col-sm-6">
                         <article
                                 class="entry entry-overlay entry-block eb-small {% cycle 'blue' 'green' 'purple' 'orange' 'pink' 'light_red' %}">
-                            <div class="entry-media">
+                            <div class="entry-media blist">
                                 <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
                                    class="category-block"
                                    title="Category {{ article.category.name }}">{{ article.category.name }}</a>

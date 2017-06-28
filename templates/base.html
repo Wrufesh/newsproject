@@ -2,6 +2,8 @@
 {% load static %}
 {% get_latest_news as latest_articles %}
 {% get_all_tags as tags %}
+{% get_site_object as SITE %}
+
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
 <head>
@@ -57,9 +59,9 @@
 <div id="wrapper" class="boxed">
 
     {#    Header#}
-        {% include '_header.html' %}
+    {% include '_header.html' %}
 
-            {% block carousel %}{% endblock %}
+    {% block carousel %}{% endblock %}
 
 
     <div class="container">
@@ -81,6 +83,8 @@
 
 
 {% block extra_script %}{% endblock %}
+
+<script id="dsq-count-scr" src="//{{ SITE.name }}.disqus.com/count.js" async></script>
 
 
 </body>

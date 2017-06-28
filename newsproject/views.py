@@ -4,7 +4,7 @@ from news.models import News, Category
 
 
 def index(request):
-    news = News.objects.all().order_by('-published_date')
+    news = News.objects.order_by('-published_date')
     context = dict()
     context['latest_news'] = news[:10]
     context['top_news'] = news[:3]
@@ -21,6 +21,7 @@ def index(request):
 
 def contact(request):
     return render(request, 'contact.html', {})
+
 
 def about(request):
     return render(request, 'about.html', {})

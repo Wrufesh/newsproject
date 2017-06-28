@@ -14,7 +14,7 @@ def get_current_categories():
 
 @register.simple_tag
 def get_latest_news():
-    return News.objects.all().order_by('published_date')[:10]
+    return News.objects.all().order_by('-published_date')[:10]
 
 
 @register.simple_tag
