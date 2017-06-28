@@ -15,11 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-SECRET_KEY = 'u=9)9k=3w!ged@f95in$@f0f1%s1)tmanlb^7hn&_+hs63h=e^'
-
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -111,3 +106,14 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 SITE_ID = 1
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+        "KEY_PREFIX": "example"
+    }
+}
