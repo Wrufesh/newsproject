@@ -1,0 +1,79 @@
+{% extends '_base.html' %}
+{% load i18n thumbnail %}
+
+{% block title %} {% trans 'About Us' %} {% endblock %}
+
+{% block content %}
+    <div itemscope itemtype="https://schema.org/AboutPage">
+        <div class="row">
+
+            <div class="col-md-9">
+
+                <h1 class="mb-4">{% trans 'About Us' %}</h1>
+                <hr/>
+                {{ about_us.content|default:''|safe }}
+
+            </div>
+            <div class="col-md-3">
+                <h1 class="mb-4">&nbsp;</h1>
+
+                {% for obj in specials %}
+                    <div class="card mb-4 staff-photo">
+                        <div class="card-block text-center" itemscope itemtype="http://schema.org/Person">
+                            <p class="card-text">
+                                <img itemprop="image" src="{{ obj.photo|thumbnail_url:'avatar' }}" alt="{{ obj.name }}"/>
+                            </p>
+                            <h4 class="card-title" itemprop="name">{{ obj.name }}</h4>
+                            <h6 class="card-subtitle mb-2 text-muted" itemprop="jobTitle">
+                                {{ obj.designation }}
+                            </h6>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mt-5">
+
+            <h2>{% trans 'Office Members' %}</h2>
+            <hr/>
+
+            {% for obj in members %}
+                <div class="card mb-4 staff-photo">
+                    <div class="card-block text-center" itemscope itemtype="http://schema.org/Person">
+                        <p class="card-text">
+                            <img itemprop="image" src="{{ obj.photo|thumbnail_url:'avatar' }}" alt="{{ obj.name }}"/>
+                        </p>
+                        <h4 class="card-title" itemprop="name">{{ obj.name }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted" itemprop="jobTitle">
+                            {{ obj.designation }}
+                        </h6>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    
+    <div class="clearfix"></div>
+
+        <div>
+            {% for message in staff_messages %}
+                <h2 class="mt-5">
+                    {% trans 'Message from' %} {{ message.staff.name }}
+                    <small>({{ message.staff.designation }})</small>
+                </h2>
+                <hr/>
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-4 mt-2">
+                        <img src="{{ message.staff.photo|thumbnail_url:'avatar' }}" alt="{{ message.staff.name }}"/>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-sm-8 mt-2">
+                        {{ message.content }}
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

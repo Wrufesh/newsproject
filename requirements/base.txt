@@ -1,5 +1,10 @@
-Django==1.11.2
-django-summernote==0.8.7
+Django
+django-summernote
 django-redis
 lxml
 Pillow
+easy-thumbnails
+psycopg2
+django-solo
+dj-pagination
+django-admin-sortable2

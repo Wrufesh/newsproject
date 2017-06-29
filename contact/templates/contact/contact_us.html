@@ -1,0 +1,125 @@
+{% extends "_base.html" %}
+{% load i18n staticfiles %}
+{% block title %}{% trans 'Contact Us' %}{% endblock %}
+
+{% block breadcrumbs %}{% trans 'Contact Us' %}{% endblock %}
+
+{% block extrabody %}
+    {% if obj.location %}
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ key }}"></script>
+        <script>
+          function initialize() {
+            var lat_lng = new google.maps.LatLng({{ obj.location }});
+            var mapCanvas = document.getElementById('map-canvas');
+            var mapOptions = {
+              center: lat_lng,
+              zoom: 14,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var marker = new google.maps.Marker({
+              position: lat_lng,
+              map: map
+            });
+          }
+          google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+    <div itemscope itemtype="https://schema.org/ContactPage">
+        {% if obj.location %}
+            <h1 class="page-title">{% trans 'Contact Us' %}</h1>
+        {% endif %}
+
+        {% if obj.content %}
+            {{ obj.content|linebreaks }}
+        {% endif %}
+
+        <!--Google Map-->
+        <section class="map">
+            <div id="map-canvas"></div>
+        </section><!--Google Map Close-->
+
+        <div class="row mt-4">
+            <!--Contact Info-->
+            <div class="col-lg-6 col-lg-offset-1 col-md-5 col-sm-5">
+                <h3>{% trans 'Contact Information' %}</h3>
+                <div class="contact-info" itemscope itemtype="http://schema.org/Organization">
+                    <div itemprop="name">Nepa Philatelic Bureau</div>
+                    {% if obj.address %}
+                        <div itemprop="address">{{ obj.address|linebreaks }}</div>
+                    {% endif %}
+                    {% if obj.email %}
+                        <div itemprop="email">
+                            {% trans 'E-mail' %}:
+                            {% for email in obj.email %}
+                                <a href="mailto:{{ email }}">{{ email }}</a>
+                                {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if obj.phone %}
+                        <div itemprop="telephone">
+                            {% trans 'Phone' %}:
+                            {% for phone in obj.phone %}
+                                <a href="tel:{{ phone }}">{{ phone }}</a>
+                                {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if obj.fax %}
+                        <div itemprop="faxNumber">
+                            {% trans 'Fax' %}:
+                            {% for fax in obj.fax %}
+                                <a href="fax:{{ fax }}">{{ fax }}</a>
+                                {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    {% if obj.social_media %}
+                        <h3 class="mt-3">{% trans 'Social Media' %}:</h3>
+                        <link itemprop="url" href="https://{{ request.META.HTTP_HOST }}">
+                        <div>
+                            {% for medium in obj.social_media %}
+                                <a itemprop="sameAs" href="{{ medium.url }}"> <i class="fa fa-{{ medium.fa }}"></i> {{ medium.site }}</a>
+                                {% if not forloop.last %} | {% endif %}
+                            {% endfor %}
+                        </div>
+
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-7 col-sm-7">
+                <h3>{% trans 'Leave us a message.' %}</h3>
+
+                <form method="POST" class="contact-form">
+                    {% csrf_token %}
+                    {% if not request.user.is_authenticated %}
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                {{ form.name }}
+                            </div>
+                            <div class="col-6">
+                                {{ form.email }}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {{ form.message }}
+
+                    <input class="btn btn-primary mt-2" type="submit" value="Submit!" role="button">
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

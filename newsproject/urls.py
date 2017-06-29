@@ -18,15 +18,16 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from newsproject.views import index, contact, about
+from content import views as content_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^news/', include('news.urls')),
-    url(r'^$', index, name='home'),
-    url(r'^contact$', contact, name='contact'),
-    url(r'^about$', about, name='about'),
+    url(r'^$', content_views.home, name='home'),
+    url(r'^about-us/$', content_views.about_us, name='about'),
+    url(r'^office-members/$', content_views.OfficeStaffList.as_view(), name='office_staff'),
+    url(r'^contact-us/', include('contact.urls')),
 ]
 
 if settings.DEBUG:

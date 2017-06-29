@@ -1,0 +1,53 @@
+{% extends '_base.html' %}
+{% load i18n thumbnail %}
+
+{% block title %}{% trans 'Office Members' %}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-md-9">
+
+            <h2 class="page-title">{% trans 'Office Members' %}</h2>
+            <hr/>
+
+            {% for obj in object_list %}
+                <div class="card mb-4 staff-photo">
+                    <div class="card-block text-center">
+                        <p class="card-text">
+                            <img src="{{ obj.photo|thumbnail_url:'avatar' }}" alt="{{ obj.name }}"/>
+                        </p>
+                        <h4 class="card-title">{{ obj.name }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            {{ obj.designation }}
+                        </h6>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="col-md-3">
+
+            <h2 class="page-title">{% trans 'Special Members' %}</h2>
+            <hr/>
+
+            {% for obj in specials %}
+                <div class="card mb-4 staff-photo d-block float-right">
+                    <div class="card-block text-center">
+                        <p class="card-text">
+                            <img src="{{ obj.photo|thumbnail_url:'avatar' }}" alt="{{ obj.name }}"/>
+                        </p>
+                        <h4 class="card-title">{{ obj.name }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            {{ obj.designation }}
+                        </h6>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

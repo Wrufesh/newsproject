@@ -15,14 +15,17 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
-
 INSTALLED_APPS = [
-    'news',
-    'disqus',
+    'solo',
+    'dj_pagination',
     'django_summernote',
+    'easy_thumbnails',
+    'news',
+    'content',
+    'contact',
+    'disqus',
     'django.contrib.admin',
     'django.contrib.sites',
     'django.contrib.auth',
@@ -61,7 +64,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'newsproject.wsgi.application'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -117,3 +119,5 @@ CACHES = {
         "KEY_PREFIX": "example"
     }
 }
+
+MAPS_API_KEY = 'AIzaSyDbyxMHk_ZduD4Lknmg-mQqWm9AjZ_Elgc'
