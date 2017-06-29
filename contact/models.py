@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.contrib.postgres.fields import ArrayField
+# from django.contrib.postgres.fields import ArrayField
 from django.core.mail import mail_admins
 from django.db import models
 from django.conf import settings
@@ -14,9 +14,9 @@ from newsproject.utils.fields import LocationField
 class ContactSetting(SingletonModel):
     content = models.TextField(null=True, blank=True)
     address = models.TextField(blank=True, null=True)
-    email = ArrayField(models.EmailField(blank=True, null=True), blank=True, null=True)
-    phone = ArrayField(models.CharField(max_length=50, blank=True, null=True), blank=True, null=True)
-    fax = ArrayField(models.CharField(max_length=50, blank=True, null=True), blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=50, blank=True, null=True)
+    fax = models.CharField(max_length=50, blank=True, null=True)
     facebook_page = models.URLField(blank=True, null=True)
     facebook_group = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)

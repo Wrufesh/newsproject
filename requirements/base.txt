@@ -4,7 +4,6 @@ django-redis
 lxml
 Pillow
 easy-thumbnails
-psycopg2
 django-solo
 dj-pagination
 django-admin-sortable2
