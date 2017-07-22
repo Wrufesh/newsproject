@@ -64,7 +64,7 @@ class News(models.Model):
         help_text='Leave empty/unchanged for default slug.')
 
     def save(self, *args, **kwargs):
-        unique_slugify(self, self.title)
+        unique_slugify(self, self.headline)
         super(News, self).save(*args, **kwargs)
 
     def get_thumbnail(self):
