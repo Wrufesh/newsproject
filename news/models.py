@@ -6,6 +6,8 @@ from django.db.models import Q
 
 from django.core.cache import cache
 
+from newsproject.utils.forms import unique_slugify
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=250)
@@ -55,6 +57,15 @@ class News(models.Model):
     created_by = models.ForeignKey(User)
     published_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text='Leave empty/unchanged for default slug.')
+
+    def save(self, *args, **kwargs):
+        unique_slugify(self, self.title)
+        super(News, self).save(*args, **kwargs)
 
     def get_thumbnail(self):
         xhtml = html.fromstring(self.article)
@@ -70,7 +81,7 @@ class News(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse('news-detail', args=[str(self.id)])
+        return reverse('news-detail', args=[str(self.slug)])
 
     def __str__(self):
         return self.headline

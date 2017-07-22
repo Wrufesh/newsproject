@@ -11,7 +11,7 @@
                  class="entry post-{{ article.id }} post type-post status-publish format-standard has-post-thumbnail hentry">
 
 
-            <a href="{% url 'news-detail' article.id %}">
+            <a href="{% url 'news-detail' article.slug %}">
                 <div class="newslist entry-media">
                     {#                        todo background quite dark#}
                     <img width="595" height="397"
@@ -22,7 +22,7 @@
                 </div><!-- End .entry-media -->
             </a>
             <span class="entry-date">{{ article.published_date | date }}</span>
-            <h2 class="entry-title"><a href="{% url 'news-detail' article.id %}"
+            <h2 class="entry-title"><a href="{% url 'news-detail' article.slug %}"
                                        rel="bookmark">{{ article.headline }}</a>
             </h2>
 
@@ -33,7 +33,7 @@
                 <span class="cat-links">Author: <a
                         href="{% url 'news-list' %}?author_id={{ article.author.id }}"
                         rel="category tag">{{ article.author.name }}</a></span>
-                <span class="comments-link"> <a href="{% url 'news-detail' article.id %}#disqus_thread">
+                <span class="comments-link"> <a href="{% url 'news-detail' article.slug %}#disqus_thread">
                     <i class="fa fa-comments"></i>
                     <span class="disqus-comment-count"
                           data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>

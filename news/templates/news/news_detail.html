@@ -92,7 +92,7 @@
                                        class="category-block"
                                        title="Category {{ article.category.name }}">{{ article.category.name }}</a>
                                     <figure>
-                                        <a href="{% url 'news-detail' article.id %}"
+                                        <a href="{% url 'news-detail' article.slug %}"
                                            title="{{ article.headine }}">
                                             <img width="110" height="110"
                                                  src="{{ article.get_thumbnail }}"
@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-8">
                                 <h3 class="entry-title"><a
-                                        href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
+                                        href="{% url 'news-detail' article.slug %}">{{ article.headline }}</a></h3>
 
 
                                 <div class="entry-meta">
@@ -111,7 +111,7 @@
                                         class="fa fa-calendar"></i>{{ article.published_date }}</span>
                                     <span class="entry-separator">/</span>
                                     <span class="comments-link"> <a
-                                            href="{% url 'news-detail' article.id %}#disqus_thread">
+                                            href="{% url 'news-detail' article.slug %}#disqus_thread">
                                 <i class="fa fa-comments"></i>
                                 <span class="disqus-comment-count"
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>

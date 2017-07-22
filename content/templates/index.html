@@ -4,19 +4,19 @@
     <div class="card-group">
         {% for news in top_news %}
             <div class="card">
-                <a href="{% url "news-detail" news.id %}">
+                <a href="{% url "news-detail" news.slug %}">
                     <div class="index latest-post card-img" title="{{ news.headline }}">
                         <img class="img-thumbnail" src="{{ news.get_thumbnail }}" alt="Card image cap">
                     </div>
                 </a>
                 <div class="card-block">
-                    <a href="{% url "news-detail" news.id %}"><h4 class="card-title">{{ news.headline }}</h4></a>
+                    <a href="{% url "news-detail" news.slug %}"><h4 class="card-title">{{ news.headline }}</h4></a>
                 </div>
                 <div class="card-footer">
                     <span><i class="fa fa-calendar"></i> {{ news.published_date }}</span>
                     <span class="entry-separator">/</span>
 
-                    <span class="comments-link"> <a href="{% url 'news-detail' news.id %}#disqus_thread">
+                    <span class="comments-link"> <a href="{% url 'news-detail' news.slug %}#disqus_thread">
                                 <i class="fa fa-comments"></i>
                                 <span class="disqus-comment-count"
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ news.get_absolute_url }}"></span>
@@ -42,20 +42,20 @@
                 {% for article  in category_news.1 %}
 
                     <div class="card">
-                        <a href="{% url "news-detail" article.id %}">
+                        <a href="{% url "news-detail" article.slug %}">
                             <div class="cat latest-post card-img" title="{{ article.headline }}">
                                 <img class="img-thumbnail" src="{{ article.get_thumbnail }}" alt="Card image cap">
                             </div>
                         </a>
                         <div class="card-block">
-                            <a href="{% url "news-detail" article.id %}"><h4
+                            <a href="{% url "news-detail" article.slug %}"><h4
                                     class="card-title">{{ article.headline }}</h4></a>
                         </div>
                         <div class="card-footer">
                             <span><i class="fa fa-calendar"></i> {{ article.published_date }}</span>
                             <span class="entry-separator">/</span>
 
-                            <span class="comments-link"> <a href="{% url 'news-detail' article.id %}#disqus_thread">
+                            <span class="comments-link"> <a href="{% url 'news-detail' article.slug %}#disqus_thread">
                                 <i class="fa fa-comments"></i>
                                 <span class="disqus-comment-count"
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>
@@ -91,7 +91,7 @@
                                            class="category-block"
                                            title="Category {{ article.category.name }}">{{ article.category.name }}</a>
                                         <figure>
-                                            <a href="{% url 'news-detail' article.id %}"
+                                            <a href="{% url 'news-detail' article.slug %}"
                                                title="{{ article.headine }}">
                                                 <img width="110" height="110"
                                                      src="{{ article.get_thumbnail }}"
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-lg-8">
                                     <h3 class="entry-title"><a
-                                            href="{% url 'news-detail' article.id %}">{{ article.headline }}</a></h3>
+                                            href="{% url 'news-detail' article.slug %}">{{ article.headline }}</a></h3>
 
 
                                     <div class="entry-meta">
@@ -110,7 +110,7 @@
                                         class="fa fa-calendar"></i>{{ article.published_date }}</span>
                                         <span class="entry-separator">/</span>
                                         <span class="comments-link"> <a
-                                                href="{% url 'news-detail' article.id %}#disqus_thread">
+                                                href="{% url 'news-detail' article.slug %}#disqus_thread">
                                 <i class="fa fa-comments"></i>
                                 <span class="disqus-comment-count"
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>
