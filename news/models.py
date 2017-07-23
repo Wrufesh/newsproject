@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -6,6 +8,7 @@ from django.db.models import Q
 
 from django.core.cache import cache
 
+from newsproject.settings import MEDIA_ROOT
 from newsproject.utils.forms import unique_slugify
 
 
@@ -21,7 +24,7 @@ class Tag(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    photo = models.ImageField(upload_to='media', null=True, blank=True)
+    photo = models.ImageField(upload_to='authors_pictures', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -73,8 +76,7 @@ class News(models.Model):
         if img_sources:
             return img_sources[0]
         else:
-            # todo return default image
-            return None
+            return os.path.join('media/', 'default_news.jpg')
 
     def get_related_articles(self):
         return News.objects.filter(tags__in=self.tags.all()).distinct()
@@ -88,3 +90,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = _('News')
+
+
+# todo remove header color
+# todo remove aselmag css or rename it

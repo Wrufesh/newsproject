@@ -3,5 +3,5 @@ db.sqlite3
 .idea/
 static/public/plugins/
 local.py
-django-summernote/
+media/django-summernote/
 media/
