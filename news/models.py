@@ -119,6 +119,5 @@ class News(models.Model):
         verbose_name_plural = _('News')
 
 
-        # todo remove header color
-        # todo remove aselmag css or rename it
-        # todo category listing with slug instead of get filter
+# todo manage footer with credits
+# todo related thumnail fixd size
