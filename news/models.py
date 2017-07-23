@@ -119,5 +119,5 @@ class News(models.Model):
         verbose_name_plural = _('News')
 
 
-# todo manage footer with credits
+# todo manage footer with credits (also aboutus contact us)
 # todo related thumnail fixd size
