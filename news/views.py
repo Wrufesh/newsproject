@@ -13,12 +13,15 @@ class NewsListView(ListView):
 
     def get_queryset(self):
         news = News.objects.order_by('-published_date')
-        if self.category_slug:
-            news = news.filter(category__slug=self.category_slug)
-        if self.author_slug:
-            news = news.filter(author__slug=self.author_slug)
-        if self.tag_slug:
-            news = news.filter(tag__slug=self.tag_slug)
+        category_slug = self.kwargs.get('category_slug')
+        author_slug = self.kwargs.get('author_slug')
+        tag_slug = self.kwargs.get('tag_slug')
+        if category_slug:
+            news = news.filter(category__slug=category_slug)
+        if author_slug:
+            news = news.filter(author__slug=author_slug)
+        if tag_slug:
+            news = news.filter(tag__slug=tag_slug)
         return news
 
 

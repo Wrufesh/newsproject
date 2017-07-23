@@ -74,6 +74,9 @@ class Category(models.Model):
         super().save(*args, **kwargs)
         cache.set('menu', Category.objects.filter(show_in_menu=True), timeout=None)
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
 
 class News(models.Model):
     headline = models.CharField(max_length=500)
@@ -100,7 +103,7 @@ class News(models.Model):
         if img_sources:
             return img_sources[0]
         else:
-            return os.path.join('media/', 'default_news.jpg')
+            return os.path.join('/media/', 'default_news.jpg')
 
     def get_related_articles(self):
         return News.objects.filter(tags__in=self.tags.all()).distinct()
