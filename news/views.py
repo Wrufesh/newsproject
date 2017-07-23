@@ -11,22 +11,15 @@ def get_categories_context(request):
 class NewsListView(ListView):
     model = News
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        category_id = self.request.GET.get('category_id', None)
-        author_id = self.request.GET.get('author_id', None)
-        tag_id = self.request.GET.get('tag_id', None)
+    def get_queryset(self):
         news = News.objects.order_by('-published_date')
-        if category_id:
-            news = news.filter(category__id=category_id)
-        if author_id:
-            news = news.filter(author__id=author_id)
-
-        if tag_id:
-            news = news.filter(tags__id=tag_id)
-
-        context['object_list'] = news
-        return context
+        if self.category_slug:
+            news = news.filter(category__slug=self.category_slug)
+        if self.author_slug:
+            news = news.filter(author__slug=self.author_slug)
+        if self.tag_slug:
+            news = news.filter(tag__slug=self.tag_slug)
+        return news
 
 
 class NewsDetailView(DetailView):

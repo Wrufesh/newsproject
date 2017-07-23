@@ -28,7 +28,7 @@
                     <div id="tag_cloud-4" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3>
                         <div class="tagcloud">
                             {% for tag in tags %}
-                                <a href='{% url 'news-list' %}?tag_id={{ tag.id }}'
+                                <a href='{% url 'news-list' tag_slug=tag.slug %}'
                                    class='tag-link-118 tag-link-position-1' title='{{ tag.topic.count }} topic'
                                    style='font-size: 8pt;'>{{ tag.name }}</a>
                             {% endfor %}

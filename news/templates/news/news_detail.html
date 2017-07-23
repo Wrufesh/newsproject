@@ -42,7 +42,7 @@
             										<span class="entry-cats">
             						<span class="entry-label">
             							<i class="fa fa-tag"></i> Categories:						</span>
-            						<a href="{% url 'news-list' %}?category_id={{ object.category.id }}">{{ object.category.name }}</a>					</span>
+            						<a href="{% url 'news-list' category_slug=object.category.slug %}">{{ object.category.name }}</a>					</span>
                     <span class="entry-cats">
             						<span class="entry-label">
             							<i class="fa fa-tag"></i> Tags:						</span>
@@ -51,13 +51,13 @@
                             {% if not forloop.first %}
                                 <span class="entry-separator">/</span>
                             {% endif %}
-                            <a href="{% url 'news-list' %}?tag_id={{ tag.id }}">{{ tag.name }}</a>
+                            <a href="{% url 'news-list' tag_slug=tag.slug %}">{{ tag.name }}</a>
                         {% endfor %}
 
             											</span>
                     <!-- End .entry-tags -->
                     <span class="entry-separator"></span>
-                    by <a href="{% url 'news-list' %}?author_id={{ object.author_id }}"
+                    by <a href="{% url 'news-list' author_slug=object.author.slug %}"
                           class="entry-author">{{ object.author.name }}</a>
                 </footer>
             </div>
@@ -85,7 +85,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="entry-media blist">
-                                    <a href="{% url 'news-list' %}?category_id={{ article.category.id }}"
+                                    <a href="{% url 'news-list' category_slug=article.category.slug %}"
                                        class="category-block"
                                        title="Category {{ article.category.name }}">{{ article.category.name }}</a>
                                     <figure>
@@ -114,7 +114,7 @@
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ article.get_absolute_url }}"></span>
                             </a></span>
                                     <div>
-                                        Posted By<a href="{% url 'news-list' %}?author_id={{ article.author.id }}"
+                                        Posted By<a href="{% url 'news-list' author_slug=article.author.slug %}"
                                                     class="entry-author">{{ article.author.name }}</a>
                                     </div>
                                 </div> <!-- End .entry-meta -->

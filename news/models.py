@@ -14,6 +14,15 @@ from newsproject.utils.forms import unique_slugify
 
 class Tag(models.Model):
     name = models.CharField(max_length=250)
+    slug = models.SlugField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text='Leave empty/unchanged for default slug.')
+
+    def save(self, *args, **kwargs):
+        unique_slugify(self, self.name)
+        super(Tag, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -25,6 +34,15 @@ class Tag(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=100, unique=True)
     photo = models.ImageField(upload_to='authors_pictures', null=True, blank=True)
+    slug = models.SlugField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text='Leave empty/unchanged for default slug.')
+
+    def save(self, *args, **kwargs):
+        unique_slugify(self, self.name)
+        super(Author, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -33,6 +51,11 @@ class Author(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
     show_in_menu = models.BooleanField(default=True)
+    slug = models.SlugField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text='Leave empty/unchanged for default slug.')
 
     @classmethod
     def menus(cls):
@@ -47,6 +70,7 @@ class Category(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
+        unique_slugify(self, self.name)
         super().save(*args, **kwargs)
         cache.set('menu', Category.objects.filter(show_in_menu=True), timeout=None)
 
@@ -92,5 +116,6 @@ class News(models.Model):
         verbose_name_plural = _('News')
 
 
-# todo remove header color
-# todo remove aselmag css or rename it
+        # todo remove header color
+        # todo remove aselmag css or rename it
+        # todo category listing with slug instead of get filter

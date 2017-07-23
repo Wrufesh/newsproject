@@ -27,10 +27,10 @@
 
             <footer class="entry-footer">
                 <span class="cat-links">Posted in: <a
-                        href="{% url 'news-list' %}?category_id={{ article.category.id }}"
+                        href="{% url 'news-list' category_slug=article.category.slug %}"
                         rel="category tag">{{ article.category.name }}</a></span>
                 <span class="cat-links">Author: <a
-                        href="{% url 'news-list' %}?author_id={{ article.author.id }}"
+                        href="{% url 'news-list' author_slug=article.author.slug %}"
                         rel="category tag">{{ article.author.name }}</a></span>
                 <span class="comments-link"> <a href="{% url 'news-detail' article.slug %}#disqus_thread">
                     <i class="fa fa-comments"></i>
