@@ -21,7 +21,7 @@ class NewsListView(ListView):
         if author_slug:
             news = news.filter(author__slug=author_slug)
         if tag_slug:
-            news = news.filter(tag__slug=tag_slug)
+            news = news.filter(tags__slug=tag_slug)
         return news
 
 
