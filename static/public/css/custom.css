@@ -4,7 +4,7 @@ body.custom-background {
 
 
 .navbar-nav > .nav-item.nav-link {
-    border-top: 5px solid;
+    /*border-top: 5px solid;*/
     padding: 20px 20px;
     text-transform: uppercase;
     font-weight: bold;
