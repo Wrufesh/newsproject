@@ -25,16 +25,17 @@
 
         <div class="row">
             <div class="col-md-12">
+                <div itemscope itemtype="http://schema.org/NewsArticle">
+                    <article id="post-4002"
+                             class="entry single post-4002 post type-post status-publish format-standard has-post-thumbnail hentry category-beauty tag-html tag-php tag-tag tag-tags tag-wordpress tag-world">
 
-                <article id="post-4002"
-                         class="entry single post-4002 post type-post status-publish format-standard has-post-thumbnail hentry category-beauty tag-html tag-php tag-tag tag-tags tag-wordpress tag-world">
-
-                    <span class="entry-date">{{ object.published_date|date }}</span>
-                    <h2 class="entry-title">{{ object.headline }}</h2>
-                    <div class="entry-content">
-                        {{ object.article|safe }}
-                    </div><!-- End .entry-content -->
-                </article>
+                        <span class="entry-date">{{ object.published_date|date }}</span>
+                        <h2 class="entry-title">{{ object.headline }}</h2>
+                        <div class="entry-content">
+                            {{ object.article|safe }}
+                        </div><!-- End .entry-content -->
+                    </article>
+                </div>
             </div><!-- End .col-md-12 -->
 
             <div class="col-md-12">
@@ -57,7 +58,8 @@
             											</span>
                     <!-- End .entry-tags -->
                     <span class="entry-separator"></span>
-                    by <a href="{% url 'news-list' author_slug=object.author.slug %}"
+
+                    by <a itemscope itemtype ="http://schema.org/Person" href="{% url 'news-list' author_slug=object.author.slug %}"
                           class="entry-author">{{ object.author.name }}</a>
                 </footer>
             </div>
