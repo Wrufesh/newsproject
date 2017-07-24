@@ -117,7 +117,3 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = _('News')
-
-
-# todo related thumnail fixd size
-# TODO MICROSCHEMA
