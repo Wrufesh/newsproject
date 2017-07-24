@@ -103,7 +103,6 @@
 
                 <form method="POST" class="contact-form">
                     {% csrf_token %}
-                    {% if not request.user.is_authenticated %}
                         <div class="row mb-3">
                             <div class="col-6">
                                 {{ form.name }}
@@ -112,7 +111,6 @@
                                 {{ form.email }}
                             </div>
                         </div>
-                    {% endif %}
 
                     {{ form.message }}
 
