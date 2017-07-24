@@ -129,3 +129,14 @@ PAGINATION_SETTINGS = {
 
     'SHOW_FIRST_PAGE_WHEN_INVALID': True,
 }
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (150, 150), 'crop': True},
+        'stamp': {'size': (250, 250), '': True},
+        'series': {'size': (250, 125), '': True},
+        'series_full': {'size': (700, 450), '': True},
+        'stamp_horizontal': {'size': (250, 150), '': True},
+        'stamp_vertical': {'size': (100, 150), '': True},
+    },
+}

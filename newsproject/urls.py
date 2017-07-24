@@ -26,7 +26,8 @@ urlpatterns = [
     url(r'^news/', include('news.urls')),
     url(r'^$', content_views.home, name='home'),
     url(r'^about-us/$', content_views.about_us, name='about'),
-    url(r'^office-members/$', content_views.OfficeStaffList.as_view(), name='office_staff'),
+    url(r'^credits/$', content_views.credits, name='credits'),
+    # url(r'^office-members/$', content_views.OfficeStaffList.as_view(), name='office_staff'),
     url(r'^contact-us/', include('contact.urls')),
 ]
 

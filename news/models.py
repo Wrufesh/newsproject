@@ -121,3 +121,4 @@ class News(models.Model):
 
 # todo manage footer with credits (also aboutus contact us)
 # todo related thumnail fixd size
+# TODO MICROSCHEMA

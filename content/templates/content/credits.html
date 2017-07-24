@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n thumbnail static %}
+
+{% block title %} {% trans 'About Us' %} {% endblock %}
+{% block extrahead %}
+    <style>
+        .credits-body {
+            font-family: 'Montserrat', Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            color: #e5e5e5;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .credits-body > a {
+            color: #3e3e3e;
+            text-decoration: none;
+        }
+
+        .credits-body > div {
+            margin-top: 15%;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="credits-body">
+        <div itemscope itemtype="http://schema.org/Organization">
+            <a href="https://awecode.com">
+                <img itemprop="logo" src="{% static 'img/awecode.svg' %}" alt="" onerror="this.src=img/awecode.png"
+                width="270"
+                height="270"></a>
+            <h1>
+                <a href="https://awecode.com" itemprop="url"><span itemprop="name">Awecode</span></a>
+            </h1>
+
+            <a href="mailto:info@awecode.com" itemprop="email">info@awecode.com</a>
+        </div>
+    </div>
+{% endblock %}

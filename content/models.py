@@ -25,27 +25,27 @@ class AboutUs(SingletonModel):
 #         cache.set('purchase_instruction', self.content, timeout=None)
 
 
-class OfficeStaff(models.Model):
-    name = models.CharField(max_length=255)
-    designation = models.CharField(max_length=255)
-    photo = models.ImageField(upload_to='staff_photos/')
-    special = models.BooleanField(default=False)
-    order = models.PositiveIntegerField(default=0, blank=False, null=False)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        ordering = ('order',)
-
-
-class StaffMessage(models.Model):
-    staff = models.ForeignKey(OfficeStaff)
-    content = models.TextField(blank=True, null=True)
-    order = models.PositiveIntegerField(default=0, blank=False, null=False)
-
-    def __str__(self):
-        return self.staff.name
-
-    class Meta:
-        ordering = ('order',)
+# class OfficeStaff(models.Model):
+#     name = models.CharField(max_length=255)
+#     designation = models.CharField(max_length=255)
+#     photo = models.ImageField(upload_to='staff_photos/')
+#     special = models.BooleanField(default=False)
+#     order = models.PositiveIntegerField(default=0, blank=False, null=False)
+#
+#     def __str__(self):
+#         return self.name
+#
+#     class Meta:
+#         ordering = ('order',)
+#
+#
+# class StaffMessage(models.Model):
+#     staff = models.ForeignKey(OfficeStaff)
+#     content = models.TextField(blank=True, null=True)
+#     order = models.PositiveIntegerField(default=0, blank=False, null=False)
+#
+#     def __str__(self):
+#         return self.staff.name
+#
+#     class Meta:
+#         ordering = ('order',)
