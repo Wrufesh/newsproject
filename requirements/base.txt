@@ -7,3 +7,4 @@ easy-thumbnails
 django-solo
 dj-pagination
 django-admin-sortable2
+django-disqus
