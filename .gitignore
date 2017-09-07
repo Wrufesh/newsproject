@@ -2,6 +2,6 @@ db.sqlite3
 *.pyc
 .idea/
 static/public/plugins/
-local.py
+newsproject/settings/local.py
 media/django-summernote/
 media/
