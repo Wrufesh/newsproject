@@ -6,17 +6,12 @@ from .models import AboutUs
 
 
 def home(request):
-    news = News.objects.order_by('-published_date')
+    news = News.objects.select_related('author', 'category', 'created_by').order_by('-published_date')
     context = dict()
     context['latest_news'] = news[:10]
     context['top_news'] = news[:3]
 
-    news_by_category = []
-
-    for category in Category.menus():
-        news_by_category.append((category, News.objects.filter(category=category).order_by('-published_date')[:3]))
-
-    context['news_by_category'] = news_by_category
+    context['news_by_category'] = Category.menus()
 
     return render(request, 'index.html', context)
 

@@ -1,45 +1,47 @@
 {% extends 'base.html' %}
-{% load %}
+{% load cache %}
 {% block carousel %}
     <div class="card-group">
-        {% for news in top_news %}
-            <div class="card">
-                <a href="{% url "news-detail" news.slug %}">
-                    <div class="index latest-post card-img" title="{{ news.headline }}">
-                        <img class="img-thumbnail" src="{{ news.get_thumbnail }}" alt="Card image cap">
+        {% cache 10000 top-news %}
+            {% for news in top_news %}
+                <div class="card">
+                    <a href="{% url "news-detail" news.slug %}">
+                        <div class="index latest-post card-img" title="{{ news.headline }}">
+                            <img class="img-thumbnail" src="{{ news.get_thumbnail }}" alt="Card image cap">
+                        </div>
+                    </a>
+                    <div class="card-block">
+                        <a href="{% url "news-detail" news.slug %}"><h4 class="card-title">{{ news.headline }}</h4></a>
                     </div>
-                </a>
-                <div class="card-block">
-                    <a href="{% url "news-detail" news.slug %}"><h4 class="card-title">{{ news.headline }}</h4></a>
-                </div>
-                <div class="card-footer">
-                    <span><i class="fa fa-calendar"></i> {{ news.published_date }}</span>
-                    <span class="entry-separator">/</span>
+                    <div class="card-footer">
+                        <span><i class="fa fa-calendar"></i> {{ news.published_date }}</span>
+                        <span class="entry-separator">/</span>
 
-                    <span class="comments-link"> <a href="{% url 'news-detail' news.slug %}#disqus_thread">
+                        <span class="comments-link"> <a href="{% url 'news-detail' news.slug %}#disqus_thread">
                                 <i class="fa fa-comments"></i>
                                 <span class="disqus-comment-count"
                                       data-disqus-identifier="https://{{ SITE.name }}.com{{ news.get_absolute_url }}"></span>
                             </a></span>
-                    <span class="entry-separator">/</span>
-                    <a href="{% url 'news-list' author_slug=news.author.slug %}" class="entry-author"><i
-                            class="fa fa-user"></i> {{ news.author.name }}</a>
+                        <span class="entry-separator">/</span>
+                        <a href="{% url 'news-list' author_slug=news.author.slug %}" class="entry-author"><i
+                                class="fa fa-user"></i> {{ news.author.name }}</a>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        {% endcache %}
     </div>
 {% endblock %}
 
 {% block content %}
-    {% for category_news in news_by_category %}
+    {% for category in news_by_category %}
         <div class="">
             <h2 class="title-border title-bg-line {% cycle 'light_red' 'blue' 'green' 'purple' 'orange' %} mb30">
-                <span>{{ category_news.0.name }}</span>
+                <span>{{ category.name }}</span>
             </h2>
 
             <div class="card-deck">
 
-                {% for article  in category_news.1 %}
+                {% for article  in category.news.all %}
 
                     <div class="card">
                         <a href="{% url "news-detail" article.slug %}">
@@ -79,7 +81,7 @@
         </h2>
         <div class="post-section">
             <div class="row">
-
+                {% cache 10000 latest-news %}
                 {% for article in latest_news %}
                     <div class="col-sm-6">
                         <article
@@ -94,9 +96,9 @@
                                             <a href="{% url 'news-detail' article.slug %}"
                                                title="{{ article.headine }}">
                                                 <img
-                                                     src="{{ article.get_thumbnail }}"
-                                                     class="img-thumbnail"
-                                                     alt="Article Thumbnail"/> </a>
+                                                        src="{{ article.get_thumbnail }}"
+                                                        class="img-thumbnail"
+                                                        alt="Article Thumbnail"/> </a>
                                         </figure> <!-- End figure -->
                                     </div> <!-- End .entry-media -->
                                 </div>
@@ -127,6 +129,7 @@
                         </article> <!-- End .entry-block -->
                     </div> <!-- End .col-sm-6 -->
                 {% endfor %}
+            {% endcache %}
 
             </div> <!-- End .row -->
         </div> <!-- End .post-section -->

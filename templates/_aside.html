@@ -1,3 +1,5 @@
+{% load cache %}
+{% cache 10000 sidebar %}
 <div id="st_latest_posts_widget-3" class="widget widget_st_latest_posts_widget"><h3
         class="title-border dkgreen title-bg-line"><span>Latest Posts</span></h3>
     <div class="latest-posts">
@@ -23,7 +25,9 @@
     <div class="tagcloud">
         {% for tag in tags %}
             <a href='{% url 'news-list' tag_slug=tag.slug %}'
-           class=' tag-link-position-3' title='{{ tag.get_topic_count }} topics'
-           style='font-size: 22pt;'>{{ tag.name }}</a>
+               class=' tag-link-position-3' title='{{ tag.get_topic_count }} topics'
+               style='font-size: 22pt;'>{{ tag.name }}</a>
         {% endfor %}
+    </div>
 </div>
+{% endcache %}

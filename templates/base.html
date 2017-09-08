@@ -2,7 +2,7 @@
 {% load static %}
 {% get_latest_news as latest_articles %}
 {% get_all_tags as tags %}
-{% get_site_object as SITE %}
+{% get_discus_username as discus_uername %}
 
 <!DOCTYPE html>
 <html lang="en-US" prefix="og: http://ogp.me/ns#">
@@ -76,7 +76,7 @@
 
 {% block extra_script %}{% endblock %}
 
-<script id="dsq-count-scr" src="//{{ SITE.name }}.disqus.com/count.js" async></script>
+<script id="dsq-count-scr" src="//{{ discus_uername }}.disqus.com/count.js" async></script>
 
 
 </body>

@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 
 from news.models import Category, News, Tag
+from newsproject.settings import DISCUS_USERNAME
 
 register = template.Library()
 
@@ -23,5 +24,5 @@ def get_all_tags():
 
 
 @register.simple_tag
-def get_site_object():
-    return Site.objects.get(id=settings.SITE_ID)
+def get_discus_username():
+    return DISCUS_USERNAME

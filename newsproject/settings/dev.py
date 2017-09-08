@@ -34,3 +34,4 @@ DATABASES = {
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+DISCUS_USERNAME = 'wrufesh1'

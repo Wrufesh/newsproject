@@ -4,11 +4,12 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from lxml import html
-from django.db.models import Q
+from django.db.models import Q, Prefetch
 
 from django.core.cache import cache
 
 from newsproject.settings import MEDIA_ROOT
+from newsproject.utils.cache import invalidate_template_cache
 from newsproject.utils.forms import unique_slugify
 
 
@@ -23,6 +24,8 @@ class Tag(models.Model):
     def save(self, *args, **kwargs):
         unique_slugify(self, self.name)
         super(Tag, self).save(*args, **kwargs)
+        invalidate_template_cache('sidebar')
+        invalidate_template_cache('news_tags')
 
     def __str__(self):
         return self.name
@@ -61,7 +64,12 @@ class Category(models.Model):
     def menus(cls):
         cached = cache.get('menu')
         if not cached:
-            categories = Category.objects.filter(show_in_menu=True)
+            categories = Category.objects.filter(show_in_menu=True).prefetch_related(
+                Prefetch(
+                    'news',
+                    queryset=News.objects.select_related('category', 'author', 'created_by').order_by('-published_date')
+                )
+            )
             cache.set('menu', categories, timeout=None)
             return categories
         return cached
@@ -72,7 +80,14 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         unique_slugify(self, self.name)
         super().save(*args, **kwargs)
-        cache.set('menu', Category.objects.filter(show_in_menu=True), timeout=None)
+        categories = Category.objects.filter(show_in_menu=True).prefetch_related(
+            Prefetch(
+                'news',
+                queryset=News.objects.select_related('category', 'author', 'created_by').order_by('-published_date')
+            )
+        )
+        cache.set('menu', categories, timeout=None)
+        invalidate_template_cache('sidebar')
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -81,7 +96,7 @@ class Category(models.Model):
 class News(models.Model):
     headline = models.CharField(max_length=500)
     article = models.TextField()
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, related_name='news')
     author = models.ForeignKey(Author)
     tags = models.ManyToManyField(Tag, related_name='news')
     created_by = models.ForeignKey(User)
@@ -96,6 +111,9 @@ class News(models.Model):
     def save(self, *args, **kwargs):
         unique_slugify(self, self.headline)
         super(News, self).save(*args, **kwargs)
+        invalidate_template_cache('sidebar')
+        invalidate_template_cache('top-news')
+        invalidate_template_cache('latest-news')
 
     def get_thumbnail(self):
         xhtml = html.fromstring(self.article)
