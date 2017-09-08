@@ -10,7 +10,7 @@ register = template.Library()
 
 @register.simple_tag
 def get_current_categories():
-    return Category.menus()
+    return Category.objects.all()
 
 
 @register.simple_tag

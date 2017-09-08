@@ -12,7 +12,7 @@ class NewsListView(ListView):
     model = News
 
     def get_queryset(self):
-        news = News.objects.order_by('-published_date')
+        news = News.objects.select_related('author', 'created_by', 'category').order_by('-published_date')
         category_slug = self.kwargs.get('category_slug')
         author_slug = self.kwargs.get('author_slug')
         tag_slug = self.kwargs.get('tag_slug')
@@ -26,4 +26,4 @@ class NewsListView(ListView):
 
 
 class NewsDetailView(DetailView):
-    model = News
+    queryset = News.objects.prefetch_related('tags').select_related('author', 'created_by', 'category')

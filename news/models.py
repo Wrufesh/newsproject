@@ -46,6 +46,9 @@ class Author(models.Model):
     def save(self, *args, **kwargs):
         unique_slugify(self, self.name)
         super(Author, self).save(*args, **kwargs)
+        invalidate_template_cache('top-news')
+        invalidate_template_cache('latest-news')
+        invalidate_template_cache('category_news')
 
     def __str__(self):
         return self.name
@@ -60,34 +63,17 @@ class Category(models.Model):
         null=True,
         help_text='Leave empty/unchanged for default slug.')
 
-    @classmethod
-    def menus(cls):
-        cached = cache.get('menu')
-        if not cached:
-            categories = Category.objects.filter(show_in_menu=True).prefetch_related(
-                Prefetch(
-                    'news',
-                    queryset=News.objects.select_related('category', 'author', 'created_by').order_by('-published_date')
-                )
-            )
-            cache.set('menu', categories, timeout=None)
-            return categories
-        return cached
-
     def __str__(self):
         return self.name
 
     def save(self, *args, **kwargs):
         unique_slugify(self, self.name)
         super().save(*args, **kwargs)
-        categories = Category.objects.filter(show_in_menu=True).prefetch_related(
-            Prefetch(
-                'news',
-                queryset=News.objects.select_related('category', 'author', 'created_by').order_by('-published_date')
-            )
-        )
-        cache.set('menu', categories, timeout=None)
+
         invalidate_template_cache('sidebar')
+        invalidate_template_cache('categories_menu')
+        invalidate_template_cache('category_news')
+        invalidate_template_cache('latest-news')
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -114,6 +100,7 @@ class News(models.Model):
         invalidate_template_cache('sidebar')
         invalidate_template_cache('top-news')
         invalidate_template_cache('latest-news')
+        invalidate_template_cache('category_news')
 
     def get_thumbnail(self):
         xhtml = html.fromstring(self.article)
@@ -124,7 +111,7 @@ class News(models.Model):
             return os.path.join('/media/', 'default_news.jpg')
 
     def get_related_articles(self):
-        return News.objects.filter(tags__in=self.tags.all()).distinct()
+        return News.objects.select_related('category','created_by', 'author').filter(tags__in=self.tags.all()).distinct()
 
     def get_absolute_url(self):
         from django.urls import reverse

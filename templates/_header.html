@@ -1,4 +1,4 @@
-{% load category %}
+{% load category  cache %}
 {% get_current_categories as categories %}
 
 <div class="row ">
@@ -22,10 +22,12 @@
                     class="visuallyhidden">Home</span></a>
 
 
-            {% for category in categories %}
-                <a class="nav-item nav-link text-white"
-                   href="{% url 'news-list' category_slug=category.slug %}">{{ category.name }}</a>
-            {% endfor %}
+            {% cache 10000 categories_menu %}
+                {% for category in categories %}
+                    <a class="nav-item nav-link text-white"
+                       href="{% url 'news-list' category_slug=category.slug %}">{{ category.name }}</a>
+                {% endfor %}
+            {% endcache %}
 
         </div>
     </div>

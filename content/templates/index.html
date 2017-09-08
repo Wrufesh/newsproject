@@ -33,6 +33,7 @@
 {% endblock %}
 
 {% block content %}
+    {% cache 10000 category_news %}
     {% for category in news_by_category %}
         <div class="">
             <h2 class="title-border title-bg-line {% cycle 'light_red' 'blue' 'green' 'purple' 'orange' %} mb30">
@@ -74,7 +75,7 @@
 
 
     {% endfor %}
-
+    {% endcache %}
     <div>
         <h2 class="title-border title-bg-line purple mb30">
             <span>Latest News</span>
