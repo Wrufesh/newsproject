@@ -28,4 +28,4 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '202.51.74.199', 'healthnews.awecode.
 #     'APP_ID': '08fc72e7cb',
 #     'SECRET_TOKEN': '66633d40a419436743afcac979e302c1b004c4ee',
 # }
-DISCUS_USERNAME = 'hotc-news'
+DISCUS_USERNAME = 'wrufesh1'
