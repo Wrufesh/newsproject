@@ -4,9 +4,12 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from lxml import html
+from django.utils import timezone
 from django.db.models import Q, Prefetch
 
 from django.core.cache import cache
+
+from datetime import datetime
 
 from newsproject.settings import MEDIA_ROOT
 from newsproject.utils.cache import invalidate_template_cache
@@ -86,8 +89,9 @@ class News(models.Model):
     author = models.ForeignKey(Author)
     tags = models.ManyToManyField(Tag, related_name='news')
     created_by = models.ForeignKey(User)
-    published_date = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
+    source = models.CharField(max_length=150, null=True, blank=True)
     slug = models.SlugField(
         max_length=255,
         blank=True,
@@ -111,7 +115,8 @@ class News(models.Model):
             return os.path.join('/media/', 'default_news.jpg')
 
     def get_related_articles(self):
-        return News.objects.select_related('category','created_by', 'author').filter(tags__in=self.tags.all()).distinct()
+        return News.objects.select_related('category', 'created_by', 'author').filter(
+            tags__in=self.tags.all()).distinct()
 
     def get_absolute_url(self):
         from django.urls import reverse

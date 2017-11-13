@@ -2,6 +2,7 @@ from django import template
 from django.conf import settings
 from django.contrib.sites.models import Site
 
+from content.models import Content
 from news.models import Category, News, Tag
 from newsproject.settings import DISCUS_USERNAME
 
@@ -26,3 +27,7 @@ def get_all_tags():
 @register.simple_tag
 def get_discus_username():
     return DISCUS_USERNAME
+
+@register.simple_tag
+def get_footer_introduction():
+    return Content.get_solo().footer_introduction

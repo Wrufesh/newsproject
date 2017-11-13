@@ -4,8 +4,9 @@ from solo.models import SingletonModel
 
 
 
-class AboutUs(SingletonModel):
-    content = models.TextField(blank=True, null=True)
+class Content(SingletonModel):
+    about_us = models.TextField(blank=True, null=True)
+    footer_introduction = models.TextField(blank=True, null=True)
 
 
 # class PurchaseInstruction(SingletonModel):

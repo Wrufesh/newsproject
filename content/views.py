@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from news.models import News, Category
-from .models import AboutUs
+from .models import Content
 
 
 def home(request):
@@ -36,7 +36,7 @@ def home(request):
 
 def about_us(request):
     ctx = {
-        'about_us': AboutUs.get_solo(),
+        'about_us': Content.get_solo().content,
         # 'members': OfficeStaff.objects.filter(special=False).order_by('order'),
         # 'specials': OfficeStaff.objects.filter(special=True).order_by('order'),
         # 'staff_messages': StaffMessage.objects.all()

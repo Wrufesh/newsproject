@@ -1,11 +1,12 @@
-{% load cache %}
+{% load category  cache %}
 <footer id="footer" class="footer-inverse" role="contentinfo">
     <div id="footer-inner">
         <div class="container">
             <div class="row">
 
                 <div class="col-md-8 col-sm-12">
-                    <p>Some introduction text here.</p>
+                    {% get_footer_introduction as footer_introduction %}
+                    <p>{{ footer_introduction|default:''|safe }}</p>
                 </div><!-- .col-md-3.col-sm-6 -->
 
                 <div class="col-md-4 col-sm-12"
@@ -28,7 +29,7 @@
         </div><!-- End .container -->
     </div><!-- End #footer-inner -->
     <div class="container text-center mb-4">
-        <span>Copyright © - Human Organ Transplant Centre - {% now "Y" %} </span>
+        <span>Copyright © - {% now "Y" %} </span>
         <span>
             | Developed by <a href="{% url 'credits' %}">Awecode</a>
             | <a target="_blank" href="https://mail.hotc.gov.np">Check email</a>

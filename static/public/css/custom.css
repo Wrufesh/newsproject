@@ -3565,15 +3565,15 @@ ul > li:hover > a,
     margin: 0 7px 7px 0;
     padding: 4px 13px;
     color: #505050 !important;
-    background-color: #b1b1b1;
+    background-color: #f7f7f9;
     font-size: 14px !important;
     -webkit-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 }
 
 .tagcloud a:hover {
-    color: #fff !important;
-    background-color: #009688;
+    color: #29B6F6 !important;
+    /*background-color: #00fffa;*/
 }
 
 /* Title Styles - elements-titles.html */
@@ -3900,7 +3900,7 @@ ul > li:hover > a,
 }
 
 .widget-title {
-    color: #bebebe;
+    color: #fff;
 }
 
 .social-icons-label {
@@ -3942,7 +3942,7 @@ ul > li:hover > a,
     left: 0;
     width: 25px;
     height: 3px;
-    background-color: #009688;
+    background-color: #fff;
     content: "";
 }
 
@@ -4168,13 +4168,13 @@ ul > li:hover > a,
 /* Footer Inverse */
 #footer.footer-inverse {
     border-top-color: rgba(0, 0, 0, 0.1);
-    color: #eaeaea;
-    background-color: #1b5836;
+    color: #fff;
+    background-color: #1C94E0;
     padding: 1px;
 }
 
 #footer.footer-inverse a {
-    color: #9a9a9a;
+    color: #fff;
     font-weight: 700;
 }
 
@@ -4182,7 +4182,7 @@ ul > li:hover > a,
 #footer.footer-inverse a:focus,
 #footer.footer-inverse .widget .tweet_time a:hover,
 #footer.footer-inverse .widget .tweet_time a:focus {
-    color: #fafafa;
+    color: #00fffa;
 }
 
 #footer.footer-inverse .widget h4 {
@@ -5781,7 +5781,7 @@ body.custom-background {
 }
 
 .navbar-nav > .nav-item.nav-link:hover {
-    color: #009688 !important;
+    color: #00fffa !important;
 }
 
 .navbar-nav > .nav-item.nav-link:nth-child(3n+0) {
@@ -5863,3 +5863,5 @@ body.custom-background {
         flex: initial;
     }
 }
+
+/*Custom*/
