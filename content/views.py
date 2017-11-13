@@ -36,7 +36,7 @@ def home(request):
 
 def about_us(request):
     ctx = {
-        'about_us': Content.get_solo().content,
+        'about_us': Content.get_solo().about_us,
         # 'members': OfficeStaff.objects.filter(special=False).order_by('order'),
         # 'specials': OfficeStaff.objects.filter(special=True).order_by('order'),
         # 'staff_messages': StaffMessage.objects.all()
