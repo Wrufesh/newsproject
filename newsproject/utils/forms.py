@@ -1,6 +1,7 @@
 from django import forms
 import re
 from django.template.defaultfilters import slugify
+from unidecode import unidecode
 
 
 def _slug_strip(value, separator='-'):
@@ -44,7 +45,7 @@ def unique_slugify(instance, value, slug_field_name='slug', queryset=None, slug_
     slug_len = slug_field.max_length
 
     # Sort out the initial slug, limiting its length if necessary.
-    slug = slugify(value)
+    slug = slugify(unidecode(value))
     if slug_len:
         slug = slug[:slug_len]
     slug = _slug_strip(slug, slug_separator)
