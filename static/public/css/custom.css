@@ -452,8 +452,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    border-color: #00796b;
-    background-color: #00796b;
+    /*border-color: #00796b;*/
+    /*background-color: #00796b;*/
 }
 
 button:focus,
@@ -5800,10 +5800,6 @@ body.custom-background {
     padding: 0px;
 }
 
-.navbar-toggler {
-    background: green;
-}
-
 .card.index {
     width: 30%;
 }
@@ -5865,3 +5861,9 @@ body.custom-background {
 }
 
 /*Custom*/
+
+.custom-logo-link {
+    padding: 30px;
+    /*height: 300px;*/
+    /*width: 450px;*/
+}

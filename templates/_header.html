@@ -1,9 +1,11 @@
-{% load category  cache %}
+{% load category  cache static %}
 {% get_current_categories as categories %}
 
 <div class="row ">
-    <div class="col-md-3 col-sm-3 col-xs-12 navbar-brand">
-        <a href="#" class="custom-logo-link" rel="home" itemprop="url"><h1 class="mt-5">Health News</h1></a>
+    <div class="col-md-6 col-sm-12 col-xs-12 custom-logo-link">
+        <a href="/" rel="home" itemprop="url">
+            <img src="/media/logo.png" alt="Swasthyasamachar Logo"/>
+        </a>
     </div>
 </div>
 
