@@ -452,8 +452,8 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    /*border-color: #00796b;*/
-    /*background-color: #00796b;*/
+    /*border-color: #1C94E0;*/
+    /*background-color: #1C94E0;*/
 }
 
 button:focus,
@@ -809,13 +809,13 @@ input[type="submit"].btn-dark.active,
 --------------------------------------------------------------*/
 
 a {
-    color: #009688;
+    color: #1C94E0;
 }
 
 a:hover,
 a:focus,
 a:active {
-    color: #00796b;
+    color: #1C94E0;
 }
 
 a:focus {
@@ -4283,7 +4283,7 @@ ul > li:hover > a,
 
 #footer button:hover,
 #footer .pirate-forms-submit-button:hover {
-    background-color: #00796b;
+    background-color: #1C94E0;
 }
 
 #footer .pirate_forms_wrap .form_field_wrap {
